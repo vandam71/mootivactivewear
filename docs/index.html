@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mootiv Active</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+        }
+
+        h1 {
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            margin-top: -10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #b45a36;
+            color: white;
+            padding: 12px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .hero-img,
+        .wide-img {
+            width: 100%;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        /* additional image helpers for locally hosted media */
+        .header-img {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        .footer-img {
+            width: 100%;
+            max-width: 180px;
+            margin: 10px auto 0;
+            display: block;
+        }
+
+        /* product card improvements to avoid visual joining */
+        .product {
+            background: #fafafa;
+            padding: 8px;
+            border-radius: 6px;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 4px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .product .btn {
+            margin-top: 8px;
+        }
+
+        .products {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .product {
+            flex: 1;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .product .btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        .features {
+            text-align: left;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .links {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        .links a {
+            color: #b45a36;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- use a shared media folder relative path from docs -->
+        <h1>
+            <img src="../media/header_image.png" alt="Header image" class="header-img" />
+        </h1>
+        <!-- subtitle text removed since the header is now an image -->
+
+        <p>A Green 1.0 Collection já está disponível. Anda conhecê-la!</p>
+
+        <a href="#" class="btn">Conhece a Green 1.0 Collection</a>
+
+        <!-- top image inserted after the first paragraph -->
+        <img src="../media/top_image.jpg" class="hero-img" alt="Top image">
+
+        <p>
+            Uma coleção criada com a natureza e a inovação em mente.
+            Transformamos o desperdício da produção de azeite em desempenho real.
+        </p>
+
+        <div class="products">
+            <div class="product">
+                <img src="../media/girl_collection.jpg" alt="Girl Collection">
+                <a href="green_top.html" class="btn">Green 1.0 Top</a>
+            </div>
+            <div class="product">
+                <img src="../media/man_collection.png" alt="Man Collection">
+                <a href="green_tshirt.html" class="btn">Green 1.0 T-shirt</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <p>Leve.</p>
+            <p>Respirável.</p>
+            <p>Com acabamento antibacteriano.</p>
+            <p style="text-align:right;">Pronta para te acompanhar em cada movimento.</p>
+        </div>
+
+        <!-- bottom image replaces previous wide running photo -->
+        <img src="../media/bottom_image.png" class="wide-img" alt="Bottom image">
+
+        <div class="footer">
+            Movemo-nos juntos.
+            <!-- decorative footer image -->
+            <div>
+                <img src="../media/footer_image.png" alt="Footer image" class="footer-img" />
+            </div>
+            <div class="links">
+                <a href="#">Website</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
