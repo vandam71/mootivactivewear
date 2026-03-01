@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto - Mootiv Active</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="shop.html" class="btn">← Voltar à Loja</a>
+        <h1 id="prod-name">Produto</h1>
+        <img id="prod-image" src="" alt="" style="max-width:360px; width:100%;" />
+        <p id="prod-desc">Carregando...</p>
+        <p id="prod-price" class="price"></p>
+        <button id="addCart" class="btn">Adicionar ao Carrinho</button>
+    </div>
+
+    <script>
+        function getQueryParam(name) {
+            const url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+
+        function addToCart(id, name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let item = cart.find(i => i.id === id);
+            if (item) item.qty += 1; else cart.push({ id, name, price, qty: 1 });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Adicionado ao carrinho!');
+        }
+
+        (function renderProduct() {
+            const id = getQueryParam('id');
+            fetch('products.json')
+                .then(res => {
+                    if (!res.ok) throw new Error('Failed to load products.json');
+                    return res.json();
+                })
+                .then(data => {
+                    if (!data || !Array.isArray(data.products)) throw new Error('Invalid products.json');
+                    const product = data.products.find(p => p.id === id) || data.products[0];
+                    document.getElementById('prod-name').textContent = product.name;
+                    const img = document.getElementById('prod-image'); img.src = product.image; img.alt = product.name;
+                    document.getElementById('prod-desc').textContent = product.description;
+                    document.getElementById('prod-price').innerHTML = '<strong>€' + product.price.toFixed(2) + '</strong>';
+                    document.getElementById('addCart').addEventListener('click', function () { addToCart(product.id, product.name, product.price); });
+                })
+                .catch(err => {
+                    console.error('Error loading product data:', err);
+                    document.querySelector('.container').innerHTML = '<p>Erro ao carregar produto.</p>';
+                });
+        })();
+    </script>
+</body>
+
+</html>

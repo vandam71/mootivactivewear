@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Mootiv Active</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Loja Mootiv Active</h1>
+        <div class="products" id="productsGrid">
+            <!-- products will be loaded here from products.json -->
+        </div>
+        <a href="cart.html" class="btn">Ir para o Carrinho</a>
+        <div class="footer">
+            Movemo-nos juntos.
+            <div>
+                <img src="media/footer_image.png" alt="Footer image" class="footer-img" />
+            </div>
+        </div>
+    </div>
+    <script>
+        // Simple cart using localStorage
+        function addToCart(id, name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += 1;
+            } else {
+                cart.push({ id, name, price, qty: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Adicionado ao carrinho!');
+        }
+
+        // Render products loaded from products.json
+        function renderProducts(products) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product';
+
+                const content = document.createElement('div');
+                content.className = 'content';
+
+                const img = document.createElement('img');
+                img.src = p.image;
+                img.alt = p.name;
+
+                const h2 = document.createElement('h2');
+                h2.textContent = p.name;
+
+                const desc = document.createElement('p');
+                desc.className = 'description';
+                desc.textContent = p.description;
+
+                const price = document.createElement('p');
+                price.className = 'price';
+                price.innerHTML = '<strong>€' + p.price.toFixed(2) + '</strong>';
+
+                content.appendChild(img);
+                content.appendChild(h2);
+                content.appendChild(desc);
+                content.appendChild(price);
+
+                const view = document.createElement('a');
+                view.className = 'btn';
+                view.textContent = 'Ver Produto';
+                view.href = 'product.html?id=' + encodeURIComponent(p.id);
+
+                const addBtn = document.createElement('button');
+                addBtn.className = 'btn';
+                addBtn.textContent = 'Adicionar ao Carrinho';
+                addBtn.addEventListener('click', () => addToCart(p.id, p.name, p.price));
+
+                card.appendChild(content);
+                card.appendChild(view);
+                card.appendChild(addBtn);
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Load products from standalone products.json (requires http/https)
+        (function loadProducts() {
+            fetch('products.json')
+                .then(res => {
+                    if (!res.ok) throw new Error('Failed to load products.json');
+                    return res.json();
+                })
+                .then(data => {
+                    if (data && Array.isArray(data.products)) renderProducts(data.products);
+                    else throw new Error('Invalid products.json format');
+                })
+                .catch(err => {
+                    console.error('Error loading products:', err);
+                    const grid = document.getElementById('productsGrid');
+                    grid.innerHTML = '<p>Erro ao carregar produtos.</p>';
+                });
+        })();
+    </script>
+
+
+</body>
+
+</html>

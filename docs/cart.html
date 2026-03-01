@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Carrinho de Compras</h1>
+        <table class="cart-table" id="cartTable">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Cart items will be injected here -->
+            </tbody>
+        </table>
+        <div id="cartTotal" style="font-weight:bold; margin: 16px 0;"></div>
+        <form class="checkout-form">
+            <h2>Checkout</h2>
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required>
+            <label for="address">Morada</label>
+            <textarea id="address" name="address" required></textarea>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Finalizar Compra</button>
+        </form>
+        <a href="shop.html" class="btn">← Voltar à Loja</a>
+        <div class="footer">
+            Movemo-nos juntos.
+            <div>
+                <img src="media/footer_image.png" alt="Footer image" class="footer-img" />
+            </div>
+            <div class="links">
+                <a href="#">Website</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Render cart from localStorage
+        function renderCart() {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let tbody = document.querySelector('#cartTable tbody');
+            tbody.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, idx) => {
+                let itemTotal = item.price * item.qty;
+                total += itemTotal;
+                let tr = document.createElement('tr');
+                tr.innerHTML = `<td>${item.name}</td><td>€${item.price.toFixed(2)}</td><td>${item.qty}</td><td>€${itemTotal.toFixed(2)}</td><td><button onclick="removeItem(${idx})">Remover</button></td>`;
+                tbody.appendChild(tr);
+            });
+            document.getElementById('cartTotal').textContent = 'Total: €' + total.toFixed(2);
+        }
+        function removeItem(idx) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.splice(idx, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+        document.querySelector('.checkout-form').onsubmit = function (e) {
+            e.preventDefault();
+            alert('Compra finalizada! (Simulação)');
+            localStorage.removeItem('cart');
+            renderCart();
+        };
+        renderCart();
+    </script>
+</body>
+
+</html>
