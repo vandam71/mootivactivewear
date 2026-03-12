@@ -23,6 +23,7 @@
                 <h1 id="prod-name">Produto</h1>
                 <p id="prod-price" class="price"></p>
                 <div id="prod-colors"></div>
+                <div id="prod-sizes"></div>
                 <p id="prod-desc">Carregando...</p>
                 <button id="addCart" class="btn">Adicionar ao Carrinho</button>
             </div>
@@ -40,9 +41,15 @@
         }
 
         function addToCart(id, name, price) {
+            const selectedBtn = document.querySelector('#prod-sizes .size-btn.selected');
+            if (!selectedBtn) {
+                document.getElementById('prod-sizes').classList.add('size-required');
+                return;
+            }
+            const size = selectedBtn.dataset.size;
             let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            let item = cart.find(i => i.id === id);
-            if (item) item.qty += 1; else cart.push({ id, name, price, qty: 1 });
+            let item = cart.find(i => i.id === id && i.size === size);
+            if (item) item.qty += 1; else cart.push({ id, name, price, size, qty: 1 });
             localStorage.setItem('cart', JSON.stringify(cart));
             var badge = document.getElementById('cart-count');
             if (badge) {
@@ -91,6 +98,29 @@
                             container.appendChild(linkDot);
                         });
                         document.getElementById('prod-colors').appendChild(container);
+                    }
+                    // render size buttons
+                    if (product.sizes && product.sizes.length) {
+                        const sizesContainer = document.getElementById('prod-sizes');
+                        const label = document.createElement('p');
+                        label.className = 'size-label';
+                        label.textContent = 'Tamanho';
+                        sizesContainer.appendChild(label);
+                        const btnGroup = document.createElement('div');
+                        btnGroup.className = 'size-buttons';
+                        product.sizes.forEach(s => {
+                            const btn = document.createElement('button');
+                            btn.className = 'size-btn';
+                            btn.textContent = s;
+                            btn.dataset.size = s;
+                            btn.addEventListener('click', function () {
+                                btnGroup.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+                                btn.classList.add('selected');
+                                sizesContainer.classList.remove('size-required');
+                            });
+                            btnGroup.appendChild(btn);
+                        });
+                        sizesContainer.appendChild(btnGroup);
                     }
                     document.getElementById('addCart').addEventListener('click', function () { addToCart(product.id, product.name, product.price); });
                 })

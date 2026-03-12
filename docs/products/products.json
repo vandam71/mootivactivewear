@@ -4,7 +4,7 @@
       "uid": 1,
       "id": "green-top",
       "name": "Green 1.0 Top",
-      "price": 29.90,
+      "price": 29.9,
       "description": "Leve e respirável — o Top Green 1.0 combina conforto com materiais sustentáveis.",
       "page": "product.html?id=green-top",
       "gender": "women",
@@ -14,13 +14,20 @@
         "#6b4423": "products/images/green-top.jpg",
         "#ffffff": "products/images/green-top.jpg",
         "#008000": "products/images/green-top.jpg"
-      }
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
     },
     {
       "uid": 2,
       "id": "green-tshirt",
       "name": "Green 1.0 T-shirt",
-      "price": 34.90,
+      "price": 34.9,
       "description": "Conforto inteligente com acabamento antibacteriano — a T-shirt Green 1.0 foi pensada para performance e sustentabilidade.",
       "page": "product.html?id=green-tshirt",
       "gender": "men",
@@ -29,13 +36,20 @@
         "#000000": "products/images/green-tshirt.png",
         "#000080": "products/images/green-tshirt.png",
         "#ffffff": "products/images/green-tshirt.png"
-      }
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ]
     },
     {
       "uid": 3,
       "id": "green-leggings",
       "name": "Green 1.0 Legging",
-      "price": 49.90,
+      "price": 49.9,
       "description": "Compressão leve e suporte para treino — confeccionada com materiais reciclados.",
       "page": "product.html?id=green-leggings",
       "gender": "women",
@@ -44,13 +58,20 @@
         "#000000": "products/images/green-leggings.png",
         "#6b4423": "products/images/green-leggings.png",
         "#008000": "products/images/green-leggings.png"
-      }
+      },
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
     },
     {
       "uid": 5,
       "id": "green-shorts",
       "name": "Green 1.0 Shorts",
-      "price": 29.90,
+      "price": 29.9,
       "description": "Shorts leves e de secagem rápida, com tecido reciclado de alta respirabilidade.",
       "page": "product.html?id=green-shorts",
       "gender": "men",
@@ -60,13 +81,20 @@
         "#000080": "products/images/green-shorts.png",
         "#008000": "products/images/green-shorts.png",
         "#ffffff": "products/images/green-shorts.png"
-      }
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ]
     },
     {
       "uid": 6,
       "id": "green-hoodie",
       "name": "Green 1.0 Hoodie",
-      "price": 59.90,
+      "price": 59.9,
       "description": "Camisola com capuz em tecido macio — ideal para aquecimentos e pós-treino.",
       "page": "product.html?id=green-hoodie",
       "gender": "men",
@@ -74,7 +102,14 @@
       "images": {
         "#000000": "products/images/green-hoodie.png",
         "#ffffff": "products/images/green-hoodie.png"
-      }
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ]
     }
   ]
 }
