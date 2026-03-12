@@ -10,10 +10,10 @@
       "gender": "women",
       "new": true,
       "images": {
-        "#000000": "media/green-top.jpg",
-        "#6b4423": "media/green-top.jpg",
-        "#ffffff": "media/green-top.jpg",
-        "#008000": "media/green-top.jpg"
+        "#000000": "products/images/green-top.jpg",
+        "#6b4423": "products/images/green-top.jpg",
+        "#ffffff": "products/images/green-top.jpg",
+        "#008000": "products/images/green-top.jpg"
       }
     },
     {
@@ -26,9 +26,9 @@
       "gender": "men",
       "new": false,
       "images": {
-        "#000000": "media/green-tshirt.png",
-        "#000080": "media/green-tshirt.png",
-        "#ffffff": "media/green-tshirt.png"
+        "#000000": "products/images/green-tshirt.png",
+        "#000080": "products/images/green-tshirt.png",
+        "#ffffff": "products/images/green-tshirt.png"
       }
     },
     {
@@ -41,9 +41,9 @@
       "gender": "women",
       "new": true,
       "images": {
-        "#000000": "media/green-leggings.png",
-        "#6b4423": "media/green-leggings.png",
-        "#008000": "media/green-leggings.png"
+        "#000000": "products/images/green-leggings.png",
+        "#6b4423": "products/images/green-leggings.png",
+        "#008000": "products/images/green-leggings.png"
       }
     },
     {
@@ -56,10 +56,10 @@
       "gender": "men",
       "new": false,
       "images": {
-        "#000000": "media/green-shorts.png",
-        "#000080": "media/green-shorts.png",
-        "#008000": "media/green-shorts.png",
-        "#ffffff": "media/green-shorts.png"
+        "#000000": "products/images/green-shorts.png",
+        "#000080": "products/images/green-shorts.png",
+        "#008000": "products/images/green-shorts.png",
+        "#ffffff": "products/images/green-shorts.png"
       }
     },
     {
@@ -72,8 +72,8 @@
       "gender": "men",
       "new": false,
       "images": {
-        "#000000": "media/green-hoodie.png",
-        "#ffffff": "media/green-hoodie.png"
+        "#000000": "products/images/green-hoodie.png",
+        "#ffffff": "products/images/green-hoodie.png"
       }
     }
   ]

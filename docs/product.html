@@ -50,7 +50,7 @@
 
         (function renderProduct() {
             const id = getQueryParam('id');
-            fetch('products.json')
+            fetch('products/products.json')
                 .then(res => {
                     if (!res.ok) throw new Error('Failed to load products.json');
                     return res.json();
