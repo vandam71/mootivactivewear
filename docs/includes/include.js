@@ -23,9 +23,11 @@
         links.forEach(function (link) {
             var url = new URL(link.href, window.location.origin);
             link.classList.remove('active');
-            if (path.endsWith('index.html') && url.pathname.endsWith('index.html')) {
+            // Info link active on index.html with no filters
+            if ((path.endsWith('index.html') || path.endsWith('/')) && url.pathname.endsWith('index.html')) {
                 if (!filter && !gender && !category) link.classList.add('active');
             }
+            // Highlight based on query params
             if (filter && url.searchParams.get('filter') === filter) link.classList.add('active');
             if (gender && url.searchParams.get('gender') === gender) link.classList.add('active');
             if (category && url.searchParams.get('category') === category) link.classList.add('active');
