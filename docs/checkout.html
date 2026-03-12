@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout – Mootiv Active</title>
+    <meta name="description" content="Finaliza a tua encomenda Mootiv Active.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- shared header -->
+    <div id="site-header"></div>
+
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="cart.html">Carrinho</a>
+            <span class="crumb-sep">›</span>
+            <span class="crumb-current">Checkout</span>
+        </nav>
+
+        <div class="checkout-layout">
+            <!-- Order summary -->
+            <div class="checkout-summary">
+                <h2 class="checkout-section-title">Resumo da Encomenda</h2>
+                <div id="orderItems"></div>
+                <div class="checkout-total-row">
+                    <span>Total</span>
+                    <span id="orderTotal">€0.00</span>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="checkout-form-wrap">
+                <h2 class="checkout-section-title">Os teus dados</h2>
+                <form id="checkoutForm" class="checkout-form" novalidate>
+                    <div class="form-group">
+                        <label for="co-name">Nome completo</label>
+                        <input type="text" id="co-name" name="name" required placeholder="Maria Silva">
+                    </div>
+                    <div class="form-group">
+                        <label for="co-email">Email</label>
+                        <input type="email" id="co-email" name="email" required placeholder="maria@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="co-phone">Telefone</label>
+                        <input type="tel" id="co-phone" name="phone" placeholder="+351 900 000 000">
+                    </div>
+                    <div class="form-group">
+                        <label for="co-address">Morada</label>
+                        <input type="text" id="co-address" name="address" required placeholder="Rua Exemplo, 12">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="co-zip">Código Postal</label>
+                            <input type="text" id="co-zip" name="zip" required placeholder="1000-001">
+                        </div>
+                        <div class="form-group">
+                            <label for="co-city">Cidade</label>
+                            <input type="text" id="co-city" name="city" required placeholder="Lisboa">
+                        </div>
+                    </div>
+                    <div id="formError" class="form-error" style="display:none;">Por favor preenche todos os campos obrigatórios.</div>
+                    <button type="submit" class="btn" style="width:100%; margin-top:8px;">Confirmar Encomenda →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- shared footer -->
+    <div id="site-footer"></div>
+
+    <script src="includes/include.js"></script>
+    <script>
+        // Render order summary from localStorage
+        (function () {
+            var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            var container = document.getElementById('orderItems');
+            if (!cart.length) {
+                container.innerHTML = '<p style="color:#888">O teu carrinho está vazio. <a href="shop.html">Ver coleção</a></p>';
+                document.getElementById('orderTotal').textContent = '€0.00';
+                return;
+            }
+            var total = 0;
+            cart.forEach(function (item) {
+                var line = item.price * item.qty;
+                total += line;
+                var row = document.createElement('div');
+                row.className = 'order-item-row';
+                row.innerHTML =
+                    '<span class="order-item-name">' + item.name +
+                    (item.size ? ' <span class="order-item-size">(' + item.size + ')</span>' : '') +
+                    ' × ' + item.qty + '</span>' +
+                    '<span>€' + line.toFixed(2) + '</span>';
+                container.appendChild(row);
+            });
+            document.getElementById('orderTotal').textContent = '€' + total.toFixed(2);
+        })();
+
+        document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var form = e.target;
+            var required = form.querySelectorAll('[required]');
+            var valid = true;
+            required.forEach(function (f) { if (!f.value.trim()) valid = false; });
+            if (!valid) {
+                document.getElementById('formError').style.display = 'block';
+                return;
+            }
+            document.getElementById('formError').style.display = 'none';
+            localStorage.removeItem('cart');
+            // redirect to confirmation
+            document.querySelector('.container').innerHTML =
+                '<div style="text-align:center; padding:60px 20px;">' +
+                '<p style="font-size:2.5em; margin:0;">✓</p>' +
+                '<h1 style="font-size:1.3em; margin:12px 0 8px;">Encomenda confirmada!</h1>' +
+                '<p style="color:#666; margin-bottom:32px;">Obrigado pela tua compra. Receberás um email de confirmação em breve.</p>' +
+                '<a href="index.html" class="btn">Voltar ao início</a>' +
+                '</div>';
+        });
+    </script>
+</body>
+
+</html>
