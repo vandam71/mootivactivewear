@@ -1,11 +1,13 @@
 /* Mootiv Active - consolidated stylesheet */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Syne:wght@600&display=swap');
+
 /* ============================================================
    THEME VARIABLES — edit here to change fonts and base colors
    ============================================================ */
 :root {
-    --font-body: Arial, sans-serif;
-    --font-heading: Arial, sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --font-heading: 'Syne', sans-serif;
 
     --color-bg: #f5f5f5;
     --color-text: #222;
@@ -33,6 +35,15 @@ body {
     border-radius: 12px;
     box-sizing: border-box;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
 }
 
 h1 {
