@@ -59,6 +59,16 @@
                 badge.textContent = total > 0 ? total : '';
                 badge.style.display = total > 0 ? 'inline-flex' : 'none';
             }
+            // button feedback
+            var btn = document.getElementById('addCart');
+            btn.textContent = '✓ Adicionado';
+            btn.classList.add('btn-success');
+            btn.disabled = true;
+            setTimeout(function () {
+                btn.textContent = 'Adicionar ao Carrinho';
+                btn.classList.remove('btn-success');
+                btn.disabled = false;
+            }, 2000);
         }
 
         (function renderProduct() {
