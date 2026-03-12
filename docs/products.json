@@ -11,10 +11,10 @@
       "new": true,
       "colors": ["#000000","#6b4423","#ffffff","#008000"],
       "images": {
-        "#000000": "media/girl_collection.jpg",
-        "#6b4423": "media/girl_collection.jpg",
-        "#ffffff": "media/girl_collection.jpg",
-        "#008000": "media/girl_collection.jpg"
+        "#000000": "media/green-top.jpg",
+        "#6b4423": "media/green-top.jpg",
+        "#ffffff": "media/green-top.jpg",
+        "#008000": "media/green-top.jpg"
       }
     },
     {
@@ -28,9 +28,9 @@
       "new": false,
       "colors": ["#000000","#000080","#ffffff"],
       "images": {
-        "#000000": "media/man_collection.png",
-        "#000080": "media/man_collection.png",
-        "#ffffff": "media/man_collection.png"
+        "#000000": "media/green-tshirt.png",
+        "#000080": "media/green-tshirt.png",
+        "#ffffff": "media/green-tshirt.png"
       }
     },
     {
@@ -44,24 +44,9 @@
       "new": true,
       "colors": ["#000000","#6b4423","#008000"],
       "images": {
-        "#000000": "media/girl_collection.jpg",
-        "#6b4423": "media/girl_collection.jpg",
-        "#008000": "media/girl_collection.jpg"
-      }
-    },
-    {
-      "uid": 4,
-      "id": "green-bra",
-      "name": "Green 1.0 Bra",
-      "price": 39.90,
-      "description": "Sutiã com suporte suave e acabamento respirável, ideal para treinos de média intensidade.",
-      "page": "product.html?id=green-bra",
-      "gender": "women",
-      "new": false,
-      "colors": ["#000000","#008000"],
-      "images": {
-        "#000000": "media/girl_collection.jpg",
-        "#008000": "media/girl_collection.jpg"
+        "#000000": "media/green-leggings.png",
+        "#6b4423": "media/green-leggings.png",
+        "#008000": "media/green-leggings.png"
       }
     },
     {
@@ -75,10 +60,10 @@
       "new": false,
       "colors": ["#000000","#000080","#008000","#ffffff"],
       "images": {
-        "#000000": "media/man_collection.png",
-        "#000080": "media/man_collection.png",
-        "#008000": "media/man_collection.png",
-        "#ffffff": "media/man_collection.png"
+        "#000000": "media/green-shorts.png",
+        "#000080": "media/green-shorts.png",
+        "#008000": "media/green-shorts.png",
+        "#ffffff": "media/green-shorts.png"
       }
     },
     {
@@ -92,8 +77,8 @@
       "new": false,
       "colors": ["#000000","#ffffff"],
       "images": {
-        "#000000": "media/man_collection.png",
-        "#ffffff": "media/man_collection.png"
+        "#000000": "media/green-hoodie.png",
+        "#ffffff": "media/green-hoodie.png"
       }
     }
   ]

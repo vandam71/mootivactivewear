@@ -352,6 +352,19 @@ h1 {
 }
 
 /* Product page layout */
+.img-color-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.img-color-wrapper img {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+}
+
 .product-layout {
     display: flex;
     gap: 24px;
