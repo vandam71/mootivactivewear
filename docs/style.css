@@ -1,10 +1,23 @@
 /* Mootiv Active - consolidated stylesheet */
 
+/* ============================================================
+   THEME VARIABLES — edit here to change fonts and base colors
+   ============================================================ */
+:root {
+    --font-body: Arial, sans-serif;
+    --font-heading: Arial, sans-serif;
+
+    --color-bg: #f5f5f5;
+    --color-text: #222;
+    --color-accent: #2d6a2d;
+    --color-accent-warm: #b45a36;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #222;
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
     text-align: center;
     min-height: 100vh;
     display: flex;
@@ -36,7 +49,7 @@ h1 {
 
 .btn {
     display: inline-block;
-    background: #b45a36;
+    background: var(--color-accent-warm);
     color: #fff;
     padding: 12px 20px;
     margin: 12px 0;
@@ -121,7 +134,7 @@ h1 {
 }
 
 .cart-link:hover {
-    color: #b45a36;
+    color: var(--color-accent-warm);
 }
 
 .main-nav ul {
@@ -143,11 +156,11 @@ h1 {
 
 .main-nav ul li a:hover,
 .main-nav ul li a.active {
-    color: #b45a36;
+    color: var(--color-accent-warm);
 }
 
 .main-nav ul li a.active {
-    border-bottom: 2px solid #b45a36;
+    border-bottom: 2px solid var(--color-accent-warm);
 }
 
 /* Footer styling */
@@ -204,7 +217,7 @@ h1 {
     position: absolute;
     top: 2px;
     right: -2px;
-    background: #2d6a2d;
+    background: var(--color-accent);
     color: #fff;
     font-size: 0.45em;
     font-weight: 700;
@@ -223,7 +236,7 @@ h1 {
     position: absolute;
     top: 12px;
     left: 12px;
-    background: #2d6a2d;
+    background: var(--color-accent);
     color: #fff;
     font-size: 0.7em;
     font-weight: 700;
@@ -460,7 +473,7 @@ h1 {
     background: #fafafa;
     border-radius: 12px;
     padding: 24px;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
 }
 
 .checkout-form-wrap {
@@ -597,8 +610,8 @@ h1 {
 }
 
 .btn-success {
-    background: #2d6a2d !important;
-    border-color: #2d6a2d !important;
+    background: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
     color: #fff !important;
     cursor: default;
 }
@@ -637,7 +650,7 @@ h1 {
 
 .size-btn.selected {
     border-color: #2d6a2d;
-    background: #2d6a2d;
+    background: var(--color-accent);
     color: #fff;
 }
 

@@ -26,7 +26,8 @@
             </div>
             <a href="checkout.html" class="btn" id="checkoutBtn">Finalizar Compra →</a>
         </div>
-        <a href="shop.html" class="btn btn-outline" style="margin-top:12px; display:inline-block;">← Continuar a comprar</a>
+        <a href="shop.html" class="btn btn-outline" style="margin-top:12px; display:inline-block;">← Continuar a
+            comprar</a>
     </div>
 
     <!-- shared footer -->
@@ -78,13 +79,13 @@
                 row.innerHTML =
                     '<img class="cart-item-img" src="' + imgSrc + '" alt="' + item.name + '">' +
                     '<div class="cart-item-info">' +
-                        '<div class="cart-item-name">' + item.name + '</div>' +
-                        (item.size ? '<div class="cart-item-meta">Tamanho: ' + item.size + '</div>' : '') +
-                        '<div class="cart-item-meta">€' + item.price.toFixed(2) + ' × ' +
-                            '<button class="qty-btn" data-idx="' + idx + '" data-delta="-1">−</button>' +
-                            '<span class="qty-val">' + item.qty + '</span>' +
-                            '<button class="qty-btn" data-idx="' + idx + '" data-delta="1">+</button>' +
-                        '</div>' +
+                    '<div class="cart-item-name">' + item.name + '</div>' +
+                    (item.size ? '<div class="cart-item-meta">Tamanho: ' + item.size + '</div>' : '') +
+                    '<div class="cart-item-meta">€' + item.price.toFixed(2) + ' × ' +
+                    '<button class="qty-btn" data-idx="' + idx + '" data-delta="-1">−</button>' +
+                    '<span class="qty-val">' + item.qty + '</span>' +
+                    '<button class="qty-btn" data-idx="' + idx + '" data-delta="1">+</button>' +
+                    '</div>' +
                     '</div>' +
                     '<div class="cart-item-total">€' + lineTotal.toFixed(2) + '</div>' +
                     '<button class="cart-remove" data-idx="' + idx + '" title="Remover">✕</button>';
