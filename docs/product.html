@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto - Mootiv Active</title>
+    <title>Produto – Mootiv Active</title>
+    <meta name="description" content="" id="meta-desc">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -72,6 +73,9 @@
                     const product = data.products.find(p => p.id === id) || data.products[0];
                     const selectedColor = getQueryParam('color');
                     document.getElementById('prod-name').textContent = product.name;
+                    document.title = product.name + ' – Mootiv Active';
+                    const metaDesc = document.getElementById('meta-desc');
+                    if (metaDesc) metaDesc.setAttribute('content', product.description);
                     // breadcrumb
                     const crumbNav = document.getElementById('breadcrumb');
                     const genderLabel = product.gender === 'women' ? 'Women' : product.gender === 'men' ? 'Men' : null;
