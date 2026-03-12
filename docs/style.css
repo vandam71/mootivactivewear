@@ -338,55 +338,112 @@ h1 {
 }
 
 /* Cart / Checkout */
-.cart-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
 }
 
-.cart-table th,
-.cart-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: #f0f0f0;
 }
 
-.cart-table th {
-    background: #f0e6e0;
+.cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.checkout-form {
-    margin: 20px 0;
-    text-align: left;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+.cart-item-name {
+    font-weight: 700;
+    font-size: 0.95em;
 }
 
-.checkout-form label {
-    display: block;
-    margin-bottom: 6px;
+.cart-item-meta {
+    font-size: 0.82em;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cart-item-total {
+    font-weight: 700;
+    font-size: 0.95em;
+    min-width: 60px;
+    text-align: right;
+}
+
+.cart-remove {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+}
+
+.cart-remove:hover {
+    color: #c0392b;
+}
+
+.qty-btn {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 22px;
+    height: 22px;
+    font-size: 0.9em;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.qty-btn:hover {
+    border-color: #222;
+}
+
+.qty-val {
+    min-width: 18px;
+    text-align: center;
+    display: inline-block;
+}
+
+.cart-summary {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 2px solid #222;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.cart-total-row {
+    display: flex;
+    gap: 24px;
+    font-size: 1.1em;
     font-weight: 700;
 }
 
-.checkout-form input,
-.checkout-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 12px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+.btn-outline {
+    background: transparent;
+    color: #222;
+    border: 1.5px solid #222;
 }
 
-.checkout-form button {
-    width: 100%;
-    background: #b45a36;
+.btn-outline:hover {
+    background: #222;
     color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
 }
 
 /* Product page layout */

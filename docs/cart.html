@@ -14,67 +14,107 @@
     <div id="site-header"></div>
 
     <div class="container">
-        <h1>Carrinho de Compras</h1>
-        <table class="cart-table" id="cartTable">
-            <thead>
-                <tr>
-                    <th>Produto</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
-                    <th>Total</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Cart items will be injected here -->
-            </tbody>
-        </table>
-        <div id="cartTotal" style="font-weight:bold; margin: 16px 0;"></div>
-        <form class="checkout-form">
-            <h2>Checkout</h2>
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" required>
-            <label for="address">Morada</label>
-            <textarea id="address" name="address" required></textarea>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <button type="submit">Finalizar Compra</button>
-        </form>
-        <a href="shop.html" class="btn">← Voltar à Loja</a>
-
-        <!-- shared footer -->
-        <div id="site-footer"></div>
+        <h1 style="font-size:1.3em; font-weight:700; margin-bottom:24px;">O teu Carrinho</h1>
+        <div id="cartItems"></div>
+        <div id="cartEmpty" style="display:none; color:#888; padding: 40px 0; text-align:center;">
+            O teu carrinho está vazio. <a href="shop.html">Ver coleção →</a>
+        </div>
+        <div id="cartSummary" class="cart-summary" style="display:none;">
+            <div class="cart-total-row">
+                <span>Total</span>
+                <span id="cartTotal">€0.00</span>
+            </div>
+            <a href="checkout.html" class="btn" id="checkoutBtn">Finalizar Compra →</a>
+        </div>
+        <a href="shop.html" class="btn btn-outline" style="margin-top:12px; display:inline-block;">← Continuar a comprar</a>
     </div>
+
+    <!-- shared footer -->
+    <div id="site-footer"></div>
+
     <script src="includes/include.js"></script>
     <script>
-        // Render cart from localStorage
-        function renderCart() {
-            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            let tbody = document.querySelector('#cartTable tbody');
-            tbody.innerHTML = '';
-            let total = 0;
-            cart.forEach((item, idx) => {
-                let itemTotal = item.price * item.qty;
-                total += itemTotal;
-                let tr = document.createElement('tr');
-                tr.innerHTML = `<td>${item.name}</td><td>€${item.price.toFixed(2)}</td><td>${item.qty}</td><td>€${itemTotal.toFixed(2)}</td><td><button onclick="removeItem(${idx})">Remover</button></td>`;
-                tbody.appendChild(tr);
-            });
-            document.getElementById('cartTotal').textContent = 'Total: €' + total.toFixed(2);
-        }
-        function removeItem(idx) {
-            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            cart.splice(idx, 1);
+        var cachedProducts = null;
+
+        function saveAndRender(cart) {
             localStorage.setItem('cart', JSON.stringify(cart));
-            renderCart();
+            renderCart(cart, cachedProducts);
+            var badge = document.getElementById('cart-count');
+            if (badge) {
+                var total = cart.reduce(function (s, i) { return s + (i.qty || 1); }, 0);
+                badge.textContent = total > 0 ? total : '';
+                badge.style.display = total > 0 ? 'inline-flex' : 'none';
+            }
         }
-        document.querySelector('.checkout-form').onsubmit = function (e) {
-            e.preventDefault();
-            alert('Compra finalizada! (Simulação)');
-            localStorage.removeItem('cart');
-            renderCart();
-        };
-        renderCart();
+
+        function renderCart(cart, products) {
+            cart = cart || JSON.parse(localStorage.getItem('cart') || '[]');
+            var container = document.getElementById('cartItems');
+            var emptyMsg = document.getElementById('cartEmpty');
+            var summary = document.getElementById('cartSummary');
+            container.innerHTML = '';
+
+            if (!cart.length) {
+                emptyMsg.style.display = 'block';
+                summary.style.display = 'none';
+                return;
+            }
+            emptyMsg.style.display = 'none';
+            summary.style.display = 'block';
+
+            var grandTotal = 0;
+            cart.forEach(function (item, idx) {
+                var lineTotal = item.price * item.qty;
+                grandTotal += lineTotal;
+
+                var imgSrc = '';
+                if (products) {
+                    var prod = products.find(function (p) { return p.id === item.id; });
+                    if (prod && prod.images) imgSrc = prod.images[Object.keys(prod.images)[0]];
+                }
+
+                var row = document.createElement('div');
+                row.className = 'cart-item';
+                row.innerHTML =
+                    '<img class="cart-item-img" src="' + imgSrc + '" alt="' + item.name + '">' +
+                    '<div class="cart-item-info">' +
+                        '<div class="cart-item-name">' + item.name + '</div>' +
+                        (item.size ? '<div class="cart-item-meta">Tamanho: ' + item.size + '</div>' : '') +
+                        '<div class="cart-item-meta">€' + item.price.toFixed(2) + ' × ' +
+                            '<button class="qty-btn" data-idx="' + idx + '" data-delta="-1">−</button>' +
+                            '<span class="qty-val">' + item.qty + '</span>' +
+                            '<button class="qty-btn" data-idx="' + idx + '" data-delta="1">+</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="cart-item-total">€' + lineTotal.toFixed(2) + '</div>' +
+                    '<button class="cart-remove" data-idx="' + idx + '" title="Remover">✕</button>';
+                container.appendChild(row);
+            });
+
+            document.getElementById('cartTotal').textContent = '€' + grandTotal.toFixed(2);
+
+            container.querySelectorAll('.qty-btn').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var c = JSON.parse(localStorage.getItem('cart') || '[]');
+                    var i = parseInt(btn.dataset.idx);
+                    c[i].qty += parseInt(btn.dataset.delta);
+                    if (c[i].qty <= 0) c.splice(i, 1);
+                    saveAndRender(c);
+                });
+            });
+            container.querySelectorAll('.cart-remove').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var c = JSON.parse(localStorage.getItem('cart') || '[]');
+                    c.splice(parseInt(btn.dataset.idx), 1);
+                    saveAndRender(c);
+                });
+            });
+        }
+
+        fetch('products/products.json')
+            .then(function (r) { return r.json(); })
+            .then(function (data) { cachedProducts = data.products; renderCart(null, cachedProducts); })
+            .catch(function () { renderCart(); });
     </script>
 </body>
 
