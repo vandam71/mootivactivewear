@@ -116,6 +116,8 @@ h1 {
     padding: 8px 6px;
     font-size: 1.3em;
     white-space: nowrap;
+    position: relative;
+    display: inline-block;
 }
 
 .cart-link:hover {
@@ -196,6 +198,25 @@ h1 {
     width: 320px;
     box-sizing: border-box;
     position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: 2px;
+    right: -2px;
+    background: #2d6a2d;
+    color: #fff;
+    font-size: 0.45em;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    padding: 0 3px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-sizing: border-box;
 }
 
 .badge-new {

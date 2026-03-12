@@ -13,7 +13,6 @@
     <div id="site-header"></div>
 
     <div class="container">
-        <a href="shop.html" class="btn">← Voltar à Loja</a>
         <div class="product-layout">
             <div class="product-image">
                 <div class="img-color-wrapper">
@@ -45,7 +44,12 @@
             let item = cart.find(i => i.id === id);
             if (item) item.qty += 1; else cart.push({ id, name, price, qty: 1 });
             localStorage.setItem('cart', JSON.stringify(cart));
-            alert('Adicionado ao carrinho!');
+            var badge = document.getElementById('cart-count');
+            if (badge) {
+                var total = cart.reduce(function (s, i) { return s + (i.qty || 1); }, 0);
+                badge.textContent = total > 0 ? total : '';
+                badge.style.display = total > 0 ? 'inline-flex' : 'none';
+            }
         }
 
         (function renderProduct() {

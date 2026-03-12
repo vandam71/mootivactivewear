@@ -31,7 +31,12 @@
                 cart.push({ id, name, price, qty: 1 });
             }
             localStorage.setItem('cart', JSON.stringify(cart));
-            alert('Adicionado ao carrinho!');
+            var badge = document.getElementById('cart-count');
+            if (badge) {
+                var total = cart.reduce(function (s, i) { return s + (i.qty || 1); }, 0);
+                badge.textContent = total > 0 ? total : '';
+                badge.style.display = total > 0 ? 'inline-flex' : 'none';
+            }
         }
 
         // Render products loaded from products.json

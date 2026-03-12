@@ -1,6 +1,6 @@
 // Simple HTML include loader for static sites
 (function () {
-    function loadFragment(containerId, url) {
+    function loadFragment(containerId, url, callback) {
         var container = document.getElementById(containerId);
         if (!container) return;
         fetch(url).then(function (resp) {
@@ -8,6 +8,7 @@
             return resp.text();
         }).then(function (html) {
             container.innerHTML = html;
+            if (callback) callback();
         }).catch(function (err) {
             console.error('Include failed for', url, err);
         });
@@ -34,10 +35,22 @@
         });
     }
 
+    function updateCartCount() {
+        var badge = document.getElementById('cart-count');
+        if (!badge) return;
+        var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        var total = cart.reduce(function (sum, item) { return sum + (item.qty || 1); }, 0);
+        badge.textContent = total > 0 ? total : '';
+        badge.style.display = total > 0 ? 'inline-flex' : 'none';
+    }
+
+    window.updateCartCount = updateCartCount;
+
     document.addEventListener('DOMContentLoaded', function () {
-        loadFragment('site-header', 'includes/header.html');
+        loadFragment('site-header', 'includes/header.html', function () {
+            markActiveNav();
+            updateCartCount();
+        });
         loadFragment('site-footer', 'includes/footer.html');
-        // run after a tick to allow header to insert
-        setTimeout(markActiveNav, 50);
     });
 })();
