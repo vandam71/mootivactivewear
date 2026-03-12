@@ -93,8 +93,23 @@
                     return res.json();
                 })
                 .then(data => {
-                    if (data && Array.isArray(data.products)) renderProducts(data.products);
-                    else throw new Error('Invalid products.json format');
+                    if (!data || !Array.isArray(data.products)) throw new Error('Invalid products.json format');
+                    var products = data.products.slice();
+                    var params = new URLSearchParams(window.location.search);
+                    var filter = params.get('filter');
+                    var gender = params.get('gender');
+                    var category = params.get('category');
+                    if (filter === 'new') {
+                        products = products.filter(p => p.new);
+                    }
+                    if (gender) {
+                        products = products.filter(p => p.gender === gender);
+                    }
+                    if (category) {
+                        // placeholder for future category filtering
+                        products = products.filter(p => p.category === category);
+                    }
+                    renderProducts(products);
                 })
                 .catch(err => {
                     console.error('Error loading products:', err);
