@@ -70,11 +70,14 @@
                 if (Array.isArray(p.colors) && p.colors.length) {
                     const dots = document.createElement('div');
                     dots.className = 'color-dots';
-                    p.colors.slice(0,4).forEach(c => {
+                    p.colors.slice(0, 4).forEach(c => {
+                        const linkDot = document.createElement('a');
+                        linkDot.href = 'product.html?id=' + encodeURIComponent(p.id) + '&color=' + encodeURIComponent(c);
                         const dot = document.createElement('span');
                         dot.className = 'color-dot';
                         dot.style.background = c;
-                        dots.appendChild(dot);
+                        linkDot.appendChild(dot);
+                        dots.appendChild(linkDot);
                     });
                     content.appendChild(dots);
                 }

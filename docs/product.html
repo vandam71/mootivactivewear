@@ -54,15 +54,22 @@
                     const img = document.getElementById('prod-image'); img.src = product.image; img.alt = product.name;
                     document.getElementById('prod-desc').textContent = product.description;
                     document.getElementById('prod-price').innerHTML = '<strong>€' + product.price.toFixed(2) + '</strong>';
-                    // add color dots under price
+                    // add color dots under price (clickable, highlight selected)
+                    const selectedColor = getQueryParam('color');
                     if (product.colors && Array.isArray(product.colors)) {
                         const container = document.createElement('div');
                         container.className = 'color-dots';
-                        product.colors.slice(0,4).forEach(c=>{
+                        product.colors.slice(0, 4).forEach(c => {
+                            const linkDot = document.createElement('a');
+                            linkDot.href = 'product.html?id=' + encodeURIComponent(product.id) + '&color=' + encodeURIComponent(c);
                             const d = document.createElement('span');
                             d.className = 'color-dot';
                             d.style.background = c;
-                            container.appendChild(d);
+                            if (selectedColor && selectedColor === c) {
+                                d.classList.add('selected');
+                            }
+                            linkDot.appendChild(d);
+                            container.appendChild(linkDot);
                         });
                         document.getElementById('prod-price').after(container);
                     }
