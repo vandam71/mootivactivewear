@@ -54,6 +54,18 @@
                     const img = document.getElementById('prod-image'); img.src = product.image; img.alt = product.name;
                     document.getElementById('prod-desc').textContent = product.description;
                     document.getElementById('prod-price').innerHTML = '<strong>€' + product.price.toFixed(2) + '</strong>';
+                    // add color dots under price
+                    if (product.colors && Array.isArray(product.colors)) {
+                        const container = document.createElement('div');
+                        container.className = 'color-dots';
+                        product.colors.slice(0,4).forEach(c=>{
+                            const d = document.createElement('span');
+                            d.className = 'color-dot';
+                            d.style.background = c;
+                            container.appendChild(d);
+                        });
+                        document.getElementById('prod-price').after(container);
+                    }
                     document.getElementById('addCart').addEventListener('click', function () { addToCart(product.id, product.name, product.price); });
                 })
                 .catch(err => {

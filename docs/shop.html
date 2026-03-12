@@ -47,39 +47,39 @@
                 const content = document.createElement('div');
                 content.className = 'content';
 
+                const imgLink = document.createElement('a');
+                imgLink.href = 'product.html?id=' + encodeURIComponent(p.id);
+
                 const img = document.createElement('img');
                 img.src = p.image;
                 img.alt = p.name;
+                imgLink.appendChild(img);
 
                 const h2 = document.createElement('h2');
                 h2.textContent = p.name;
 
-                const desc = document.createElement('p');
-                desc.className = 'description';
-                desc.textContent = p.description;
-
                 const price = document.createElement('p');
                 price.className = 'price';
-                price.innerHTML = '<strong>€' + p.price.toFixed(2) + '</strong>';
+                price.innerHTML = '€' + p.price.toFixed(2);
 
-                content.appendChild(img);
+                content.appendChild(imgLink);
                 content.appendChild(h2);
-                content.appendChild(desc);
                 content.appendChild(price);
 
-                const view = document.createElement('a');
-                view.className = 'btn';
-                view.textContent = 'Ver Produto';
-                view.href = 'product.html?id=' + encodeURIComponent(p.id);
-
-                const addBtn = document.createElement('button');
-                addBtn.className = 'btn';
-                addBtn.textContent = 'Adicionar ao Carrinho';
-                addBtn.addEventListener('click', () => addToCart(p.id, p.name, p.price));
+                // color dots up to 4
+                if (Array.isArray(p.colors) && p.colors.length) {
+                    const dots = document.createElement('div');
+                    dots.className = 'color-dots';
+                    p.colors.slice(0,4).forEach(c => {
+                        const dot = document.createElement('span');
+                        dot.className = 'color-dot';
+                        dot.style.background = c;
+                        dots.appendChild(dot);
+                    });
+                    content.appendChild(dots);
+                }
 
                 card.appendChild(content);
-                card.appendChild(view);
-                card.appendChild(addBtn);
 
                 grid.appendChild(card);
             });
