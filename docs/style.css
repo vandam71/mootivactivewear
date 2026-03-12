@@ -195,6 +195,23 @@ h1 {
     flex: 0 0 320px;
     width: 320px;
     box-sizing: border-box;
+    position: relative;
+}
+
+.badge-new {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #2d6a2d;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .product img {

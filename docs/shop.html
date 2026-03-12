@@ -42,6 +42,13 @@
                 const card = document.createElement('div');
                 card.className = 'product';
 
+                if (p.new) {
+                    const badge = document.createElement('span');
+                    badge.className = 'badge-new';
+                    badge.textContent = 'New';
+                    card.appendChild(badge);
+                }
+
                 const content = document.createElement('div');
                 content.className = 'content';
 
