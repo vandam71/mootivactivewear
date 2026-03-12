@@ -50,9 +50,10 @@
                 return;
             }
             const size = selectedBtn.dataset.size;
+            const color = getQueryParam('color') || '';
             let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            let item = cart.find(i => i.id === id && i.size === size);
-            if (item) item.qty += 1; else cart.push({ id, name, price, size, qty: 1 });
+            let item = cart.find(i => i.id === id && i.size === size && i.color === color);
+            if (item) item.qty += 1; else cart.push({ id, name, price, size, color, qty: 1 });
             localStorage.setItem('cart', JSON.stringify(cart));
             var badge = document.getElementById('cart-count');
             if (badge) {
