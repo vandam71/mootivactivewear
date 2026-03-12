@@ -62,7 +62,7 @@
                     // use image for selected color, or first color, or default
                     const imgSrc = (product.images && selectedColor && product.images[selectedColor])
                         ? product.images[selectedColor]
-                        : ((product.images && product.colors && product.images[product.colors[0]]) ? product.images[product.colors[0]] : product.image);
+                        : ((product.images && product.colors && product.images[product.colors[0]]) ? product.images[product.colors[0]] : '');
                     img.src = imgSrc;
                     img.alt = product.name;
                     document.getElementById('prod-desc').textContent = product.description;
