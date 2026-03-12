@@ -404,6 +404,34 @@ h1 {
     border-radius: 8px;
 }
 
+.breadcrumb {
+    font-size: 0.8em;
+    color: #888;
+    margin: 10px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb a {
+    color: #555;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.crumb-sep {
+    color: #bbb;
+}
+
+.crumb-current {
+    color: #222;
+    font-weight: 600;
+}
+
 .size-label {
     font-size: 0.8em;
     font-weight: 700;

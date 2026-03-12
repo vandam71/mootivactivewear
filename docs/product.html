@@ -13,6 +13,7 @@
     <div id="site-header"></div>
 
     <div class="container">
+        <nav id="breadcrumb" class="breadcrumb"></nav>
         <div class="product-layout">
             <div class="product-image">
                 <div class="img-color-wrapper">
@@ -71,6 +72,20 @@
                     const product = data.products.find(p => p.id === id) || data.products[0];
                     const selectedColor = getQueryParam('color');
                     document.getElementById('prod-name').textContent = product.name;
+                    // breadcrumb
+                    const crumbNav = document.getElementById('breadcrumb');
+                    const genderLabel = product.gender === 'women' ? 'Women' : product.gender === 'men' ? 'Men' : null;
+                    const genderHref = product.gender ? 'shop.html?gender=' + product.gender : null;
+                    const crumbs = [
+                        { label: 'Shop', href: 'shop.html' },
+                        genderLabel ? { label: genderLabel, href: genderHref } : null,
+                        { label: product.name, href: null }
+                    ].filter(Boolean);
+                    crumbs.forEach((c, i) => {
+                        if (i > 0) { const sep = document.createElement('span'); sep.className = 'crumb-sep'; sep.textContent = '›'; crumbNav.appendChild(sep); }
+                        if (c.href) { const a = document.createElement('a'); a.href = c.href; a.textContent = c.label; crumbNav.appendChild(a); }
+                        else { const span = document.createElement('span'); span.className = 'crumb-current'; span.textContent = c.label; crumbNav.appendChild(span); }
+                    });
                     const img = document.getElementById('prod-image');
                     // use image for selected color, or first color, or default
                     const imgSrc = (product.images && selectedColor && product.images[selectedColor])
