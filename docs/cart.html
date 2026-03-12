@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <!-- shared header -->
+    <div id="site-header"></div>
+
     <div class="container">
         <h1>Carrinho de Compras</h1>
         <table class="cart-table" id="cartTable">
@@ -37,17 +40,11 @@
             <button type="submit">Finalizar Compra</button>
         </form>
         <a href="shop.html" class="btn">← Voltar à Loja</a>
-        <div class="footer">
-            Movemo-nos juntos.
-            <div>
-                <img src="media/footer_image.png" alt="Footer image" class="footer-img" />
-            </div>
-            <div class="links">
-                <a href="#">Website</a>
-                <a href="#">Instagram</a>
-            </div>
-        </div>
+
+        <!-- shared footer -->
+        <div id="site-footer"></div>
     </div>
+    <script src="includes/include.js"></script>
     <script>
         // Render cart from localStorage
         function renderCart() {

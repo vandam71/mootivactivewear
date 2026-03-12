@@ -9,19 +9,19 @@
 </head>
 
 <body>
+    <!-- shared header -->
+    <div id="site-header"></div>
+
     <div class="container">
         <h1>Loja Mootiv Active</h1>
         <div class="products" id="productsGrid">
             <!-- products will be loaded here from products.json -->
         </div>
         <a href="cart.html" class="btn">Ir para o Carrinho</a>
-        <div class="footer">
-            Movemo-nos juntos.
-            <div>
-                <img src="media/footer_image.png" alt="Footer image" class="footer-img" />
-            </div>
-        </div>
+        <!-- shared footer -->
+        <div id="site-footer"></div>
     </div>
+    <script src="includes/include.js"></script>
     <script>
         // Simple cart using localStorage
         function addToCart(id, name, price) {
@@ -103,8 +103,6 @@
                 });
         })();
     </script>
-
-
 </body>
 
 </html>

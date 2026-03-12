@@ -1,20 +1,64 @@
 {
   "products": [
     {
+      "uid": 1,
       "id": "green-top",
       "name": "Green 1.0 Top",
       "price": 29.90,
       "description": "Leve e respirável — o Top Green 1.0 combina conforto com materiais sustentáveis.",
       "image": "media/girl_collection.jpg",
-      "page": "green_top.html"
+      "page": "product.html?id=green-top",
+      "gender": "women"
     },
     {
+      "uid": 2,
       "id": "green-tshirt",
       "name": "Green 1.0 T-shirt",
       "price": 34.90,
       "description": "Conforto inteligente com acabamento antibacteriano — a T-shirt Green 1.0 foi pensada para performance e sustentabilidade.",
       "image": "media/man_collection.png",
-      "page": "green_tshirt.html"
+      "page": "product.html?id=green-tshirt",
+      "gender": "men"
+    },
+    {
+      "uid": 3,
+      "id": "green-leggings",
+      "name": "Green 1.0 Legging",
+      "price": 49.90,
+      "description": "Compressão leve e suporte para treino — confeccionada com materiais reciclados.",
+      "image": "media/girl_collection.jpg",
+      "page": "product.html?id=green-leggings",
+      "gender": "women"
+    },
+    {
+      "uid": 4,
+      "id": "green-bra",
+      "name": "Green 1.0 Bra",
+      "price": 39.90,
+      "description": "Sutiã com suporte suave e acabamento respirável, ideal para treinos de média intensidade.",
+      "image": "media/girl_collection.jpg",
+      "page": "product.html?id=green-bra",
+      "gender": "women"
+    },
+    {
+      "uid": 5,
+      "id": "green-shorts",
+      "name": "Green 1.0 Shorts",
+      "price": 29.90,
+      "description": "Shorts leves e de secagem rápida, com tecido reciclado de alta respirabilidade.",
+      "image": "media/man_collection.png",
+      "page": "product.html?id=green-shorts",
+      "gender": "men"
+    },
+    {
+      "uid": 6,
+      "id": "green-hoodie",
+      "name": "Green 1.0 Hoodie",
+      "price": 59.90,
+      "description": "Camisola com capuz em tecido macio — ideal para aquecimentos e pós-treino.",
+      "image": "media/man_collection.png",
+      "page": "product.html?id=green-hoodie",
+      "gender": "men"
     }
   ]
 }
