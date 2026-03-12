@@ -14,11 +14,18 @@
 
     <div class="container">
         <a href="shop.html" class="btn">← Voltar à Loja</a>
-        <h1 id="prod-name">Produto</h1>
-        <img id="prod-image" src="" alt="" style="max-width:360px; width:100%;" />
-        <p id="prod-desc">Carregando...</p>
-        <p id="prod-price" class="price"></p>
-        <button id="addCart" class="btn">Adicionar ao Carrinho</button>
+        <div class="product-layout">
+            <div class="product-image">
+                <img id="prod-image" src="" alt="" />
+            </div>
+            <div class="product-info">
+                <h1 id="prod-name">Produto</h1>
+                <p id="prod-price" class="price"></p>
+                <div id="prod-colors"></div>
+                <p id="prod-desc">Carregando...</p>
+                <button id="addCart" class="btn">Adicionar ao Carrinho</button>
+            </div>
+        </div>
     </div>
 
     <!-- shared footer -->
@@ -54,7 +61,7 @@
                     const img = document.getElementById('prod-image'); img.src = product.image; img.alt = product.name;
                     document.getElementById('prod-desc').textContent = product.description;
                     document.getElementById('prod-price').innerHTML = '<strong>€' + product.price.toFixed(2) + '</strong>';
-                    // add color dots under price (clickable, highlight selected)
+                    // add color dots in dedicated container
                     const selectedColor = getQueryParam('color');
                     if (product.colors && Array.isArray(product.colors)) {
                         const container = document.createElement('div');
@@ -71,7 +78,7 @@
                             linkDot.appendChild(d);
                             container.appendChild(linkDot);
                         });
-                        document.getElementById('prod-price').after(container);
+                        document.getElementById('prod-colors').appendChild(container);
                     }
                     document.getElementById('addCart').addEventListener('click', function () { addToCart(product.id, product.name, product.price); });
                 })
