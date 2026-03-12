@@ -47,6 +47,10 @@
         function renderProducts(products) {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = '';
+            if (!products.length) {
+                grid.innerHTML = '<div class="empty-state"><span class="empty-state-icon">🏃</span><p class="empty-state-title">Nada por aqui ainda</p><p class="empty-state-sub">Esta categoria ainda não tem produtos disponíveis.<br>Explora a nossa coleção completa.</p><a href="shop.html" class="btn" style="margin-top:16px;">Ver toda a coleção</a></div>';
+                return;
+            }
             products.forEach(p => {
                 const card = document.createElement('div');
                 card.className = 'product';

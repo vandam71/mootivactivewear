@@ -16,8 +16,12 @@
     <div class="container">
         <h1 style="font-size:1.3em; font-weight:700; margin-bottom:24px;">O teu Carrinho</h1>
         <div id="cartItems"></div>
-        <div id="cartEmpty" style="display:none; color:#888; padding: 40px 0; text-align:center;">
-            O teu carrinho está vazio. <a href="shop.html">Ver coleção →</a>
+        <div id="cartEmpty" class="empty-state" style="display:none;">
+            <span class="empty-state-icon">🛒</span>
+            <p class="empty-state-title">O teu carrinho está vazio</p>
+            <p class="empty-state-sub">Ainda não adicionaste nada.<br>Descobre a nossa coleção e encontra o teu próximo
+                favorito.</p>
+            <a href="shop.html" class="btn" style="margin-top:16px;">Explorar coleção →</a>
         </div>
         <div id="cartSummary" class="cart-summary" style="display:none;">
             <div class="cart-total-row">
@@ -26,7 +30,7 @@
             </div>
             <a href="checkout.html" class="btn" id="checkoutBtn">Finalizar Compra →</a>
         </div>
-        <a href="shop.html" class="btn btn-outline" style="margin-top:12px; display:inline-block;">← Continuar a
+        <a href="shop.html" class="btn btn-outline" id="continueShopping" style="margin-top:12px; display:none;">← Continuar a
             comprar</a>
     </div>
 
@@ -58,10 +62,12 @@
             if (!cart.length) {
                 emptyMsg.style.display = 'block';
                 summary.style.display = 'none';
+                document.getElementById('continueShopping').style.display = 'none';
                 return;
             }
             emptyMsg.style.display = 'none';
             summary.style.display = 'block';
+            document.getElementById('continueShopping').style.display = 'inline-block';
 
             var grandTotal = 0;
             cart.forEach(function (item, idx) {
