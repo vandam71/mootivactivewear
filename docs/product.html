@@ -64,16 +64,17 @@
                     // use image for selected color, or first color, or default
                     const imgSrc = (product.images && selectedColor && product.images[selectedColor])
                         ? product.images[selectedColor]
-                        : ((product.images && product.colors && product.images[product.colors[0]]) ? product.images[product.colors[0]] : '');
+                        : (product.images ? product.images[Object.keys(product.images)[0]] : '');
                     img.src = imgSrc;
                     img.alt = product.name;
                     document.getElementById('prod-desc').textContent = product.description;
                     document.getElementById('prod-price').innerHTML = '<strong>€' + product.price.toFixed(2) + '</strong>';
                     // add color dots in dedicated container
-                    if (product.colors && Array.isArray(product.colors)) {
+                    const imgColors = product.images ? Object.keys(product.images) : [];
+                    if (imgColors.length) {
                         const container = document.createElement('div');
                         container.className = 'color-dots';
-                        product.colors.slice(0, 4).forEach(c => {
+                        imgColors.slice(0, 4).forEach(c => {
                             const linkDot = document.createElement('a');
                             linkDot.href = 'product.html?id=' + encodeURIComponent(product.id) + '&color=' + encodeURIComponent(c);
                             const d = document.createElement('span');

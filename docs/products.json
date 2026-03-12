@@ -9,7 +9,6 @@
       "page": "product.html?id=green-top",
       "gender": "women",
       "new": true,
-      "colors": ["#000000","#6b4423","#ffffff","#008000"],
       "images": {
         "#000000": "media/green-top.jpg",
         "#6b4423": "media/green-top.jpg",
@@ -26,7 +25,6 @@
       "page": "product.html?id=green-tshirt",
       "gender": "men",
       "new": false,
-      "colors": ["#000000","#000080","#ffffff"],
       "images": {
         "#000000": "media/green-tshirt.png",
         "#000080": "media/green-tshirt.png",
@@ -42,7 +40,6 @@
       "page": "product.html?id=green-leggings",
       "gender": "women",
       "new": true,
-      "colors": ["#000000","#6b4423","#008000"],
       "images": {
         "#000000": "media/green-leggings.png",
         "#6b4423": "media/green-leggings.png",
@@ -58,7 +55,6 @@
       "page": "product.html?id=green-shorts",
       "gender": "men",
       "new": false,
-      "colors": ["#000000","#000080","#008000","#ffffff"],
       "images": {
         "#000000": "media/green-shorts.png",
         "#000080": "media/green-shorts.png",
@@ -75,7 +71,6 @@
       "page": "product.html?id=green-hoodie",
       "gender": "men",
       "new": false,
-      "colors": ["#000000","#ffffff"],
       "images": {
         "#000000": "media/green-hoodie.png",
         "#ffffff": "media/green-hoodie.png"

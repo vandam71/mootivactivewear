@@ -49,7 +49,7 @@
                 imgLink.href = 'product.html?id=' + encodeURIComponent(p.id);
 
                 const img = document.createElement('img');
-                img.src = (p.images && p.colors && p.images[p.colors[0]]) ? p.images[p.colors[0]] : '';
+                img.src = (p.images && Object.keys(p.images).length) ? p.images[Object.keys(p.images)[0]] : '';
                 img.alt = p.name;
                 imgLink.appendChild(img);
 
@@ -65,10 +65,11 @@
                 content.appendChild(price);
 
                 // color dots up to 4
-                if (Array.isArray(p.colors) && p.colors.length) {
+                const imgColors = p.images ? Object.keys(p.images) : [];
+                if (imgColors.length) {
                     const dots = document.createElement('div');
                     dots.className = 'color-dots';
-                    p.colors.slice(0, 4).forEach(c => {
+                    imgColors.slice(0, 4).forEach(c => {
                         const linkDot = document.createElement('a');
                         linkDot.href = 'product.html?id=' + encodeURIComponent(p.id) + '&color=' + encodeURIComponent(c);
                         const dot = document.createElement('span');
