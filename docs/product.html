@@ -56,12 +56,18 @@
                 .then(data => {
                     if (!data || !Array.isArray(data.products)) throw new Error('Invalid products.json');
                     const product = data.products.find(p => p.id === id) || data.products[0];
+                    const selectedColor = getQueryParam('color');
                     document.getElementById('prod-name').textContent = product.name;
-                    const img = document.getElementById('prod-image'); img.src = product.image; img.alt = product.name;
+                    const img = document.getElementById('prod-image');
+                    // use image for selected color, or first color, or default
+                    const imgSrc = (product.images && selectedColor && product.images[selectedColor])
+                        ? product.images[selectedColor]
+                        : ((product.images && product.colors && product.images[product.colors[0]]) ? product.images[product.colors[0]] : product.image);
+                    img.src = imgSrc;
+                    img.alt = product.name;
                     document.getElementById('prod-desc').textContent = product.description;
                     document.getElementById('prod-price').innerHTML = '<strong>€' + product.price.toFixed(2) + '</strong>';
                     // add color dots in dedicated container
-                    const selectedColor = getQueryParam('color');
                     if (product.colors && Array.isArray(product.colors)) {
                         const container = document.createElement('div');
                         container.className = 'color-dots';

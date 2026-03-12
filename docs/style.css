@@ -114,9 +114,10 @@ h1 {
     font-weight: 700;
     letter-spacing: 0.6px;
     padding: 8px 6px;
-    font-size: 0.95em;
+    font-size: 1.3em;
     white-space: nowrap;
 }
+
 .cart-link:hover {
     color: #b45a36;
 }

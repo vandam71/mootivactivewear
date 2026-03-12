@@ -10,7 +10,13 @@
       "page": "product.html?id=green-top",
       "gender": "women",
       "new": true,
-      "colors": ["#000000","#6b4423","#ffffff","#008000"]
+      "colors": ["#000000","#6b4423","#ffffff","#008000"],
+      "images": {
+        "#000000": "media/girl_collection.jpg",
+        "#6b4423": "media/girl_collection.jpg",
+        "#ffffff": "media/girl_collection.jpg",
+        "#008000": "media/girl_collection.jpg"
+      }
     },
     {
       "uid": 2,
@@ -22,7 +28,12 @@
       "page": "product.html?id=green-tshirt",
       "gender": "men",
       "new": false,
-      "colors": ["#000000","#000080","#ffffff"]
+      "colors": ["#000000","#000080","#ffffff"],
+      "images": {
+        "#000000": "media/man_collection.png",
+        "#000080": "media/man_collection.png",
+        "#ffffff": "media/man_collection.png"
+      }
     },
     {
       "uid": 3,
@@ -34,7 +45,12 @@
       "page": "product.html?id=green-leggings",
       "gender": "women",
       "new": true,
-      "colors": ["#000000","#6b4423","#008000"]
+      "colors": ["#000000","#6b4423","#008000"],
+      "images": {
+        "#000000": "media/girl_collection.jpg",
+        "#6b4423": "media/girl_collection.jpg",
+        "#008000": "media/girl_collection.jpg"
+      }
     },
     {
       "uid": 4,
@@ -46,7 +62,11 @@
       "page": "product.html?id=green-bra",
       "gender": "women",
       "new": false,
-      "colors": ["#000000","#008000"]
+      "colors": ["#000000","#008000"],
+      "images": {
+        "#000000": "media/girl_collection.jpg",
+        "#008000": "media/girl_collection.jpg"
+      }
     },
     {
       "uid": 5,
@@ -58,7 +78,13 @@
       "page": "product.html?id=green-shorts",
       "gender": "men",
       "new": false,
-      "colors": ["#000000","#000080","#008000","#ffffff"]
+      "colors": ["#000000","#000080","#008000","#ffffff"],
+      "images": {
+        "#000000": "media/man_collection.png",
+        "#000080": "media/man_collection.png",
+        "#008000": "media/man_collection.png",
+        "#ffffff": "media/man_collection.png"
+      }
     },
     {
       "uid": 6,
@@ -70,7 +96,11 @@
       "page": "product.html?id=green-hoodie",
       "gender": "men",
       "new": false,
-      "colors": ["#000000","#ffffff"]
+      "colors": ["#000000","#ffffff"],
+      "images": {
+        "#000000": "media/man_collection.png",
+        "#ffffff": "media/man_collection.png"
+      }
     }
   ]
 }
