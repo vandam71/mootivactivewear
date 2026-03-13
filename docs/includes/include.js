@@ -45,6 +45,10 @@
             if ((path.endsWith('index.html') || path.endsWith('/')) && url.pathname.endsWith('index.html')) {
                 if (!filter && !gender && !category) link.classList.add('active');
             }
+            // Shop link active on shop.html with no filters
+            if (path.endsWith('shop.html') && url.pathname.endsWith('shop.html') && !url.search) {
+                if (!filter && !gender && !category) link.classList.add('active');
+            }
             // Highlight based on query params
             if (filter && url.searchParams.get('filter') === filter) link.classList.add('active');
             if (gender && url.searchParams.get('gender') === gender) link.classList.add('active');
