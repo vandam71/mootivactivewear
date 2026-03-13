@@ -92,6 +92,7 @@
                     imgColors.slice(0, 4).forEach(c => {
                         const linkDot = document.createElement('a');
                         linkDot.href = 'product.html?id=' + encodeURIComponent(p.id) + '&color=' + encodeURIComponent(c);
+                        linkDot.setAttribute('aria-label', 'Ver cor ' + c);
                         const dot = document.createElement('span');
                         dot.className = 'color-dot';
                         dot.style.background = c;
