@@ -71,6 +71,7 @@
                 const img = document.createElement('img');
                 img.src = (p.images && Object.keys(p.images).length) ? p.images[Object.keys(p.images)[0]] : '';
                 img.alt = p.name;
+                img.loading = 'lazy';
                 imgLink.appendChild(img);
 
                 const h2 = document.createElement('h2');
