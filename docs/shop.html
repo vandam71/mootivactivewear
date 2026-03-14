@@ -15,6 +15,13 @@
     <div id="site-header"></div>
 
     <div class="container">
+        <div class="filter-bar" id="filterBar">
+            <a href="shop.html" class="filter-pill" data-filter="all">Todos</a>
+            <a href="shop.html?filter=new" class="filter-pill" data-filter="new">New</a>
+            <a href="shop.html?gender=women" class="filter-pill" data-gender="women">Women</a>
+            <a href="shop.html?gender=men" class="filter-pill" data-gender="men">Men</a>
+            <a href="shop.html?category=accessories" class="filter-pill" data-category="accessories">Accessories</a>
+        </div>
         <div class="products" id="productsGrid">
             <!-- products will be loaded here from products.json -->
         </div>
@@ -140,6 +147,26 @@
                     const grid = document.getElementById('productsGrid');
                     grid.innerHTML = '<p>Erro ao carregar produtos.</p>';
                 });
+        })();
+
+        // Mark active filter pill immediately (no fetch wait needed)
+        (function markActivePill() {
+            var params = new URLSearchParams(window.location.search);
+            var filter = params.get('filter');
+            var gender = params.get('gender');
+            var category = params.get('category');
+            document.querySelectorAll('#filterBar .filter-pill').forEach(function(pill) {
+                pill.classList.remove('active');
+                if (!filter && !gender && !category && pill.dataset.filter === 'all') {
+                    pill.classList.add('active');
+                } else if (filter && pill.dataset.filter === filter) {
+                    pill.classList.add('active');
+                } else if (gender && pill.dataset.gender === gender) {
+                    pill.classList.add('active');
+                } else if (category && pill.dataset.category === category) {
+                    pill.classList.add('active');
+                }
+            });
         })();
     </script>
 </body>
