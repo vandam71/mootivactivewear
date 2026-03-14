@@ -64,11 +64,11 @@
             }
             // button feedback
             var btn = document.getElementById('addCart');
-            btn.textContent = '✓ Adicionado';
+            btn.textContent = t('product.added');
             btn.classList.add('btn-success');
             btn.disabled = true;
             setTimeout(function () {
-                btn.textContent = 'Adicionar ao Carrinho';
+                btn.textContent = t('product.add_cart');
                 btn.classList.remove('btn-success');
                 btn.disabled = false;
             }, 2000);
@@ -91,10 +91,10 @@
                     if (metaDesc) metaDesc.setAttribute('content', product.description);
                     // breadcrumb
                     const crumbNav = document.getElementById('breadcrumb');
-                    const genderLabel = product.gender === 'women' ? 'Women' : product.gender === 'men' ? 'Men' : null;
+                    const genderLabel = product.gender === 'women' ? t('product.crumb_women') : product.gender === 'men' ? t('product.crumb_men') : null;
                     const genderHref = product.gender ? 'shop.html?gender=' + product.gender : null;
                     const crumbs = [
-                        { label: 'Shop', href: 'shop.html' },
+                        { label: t('product.crumb_shop'), href: 'shop.html' },
                         genderLabel ? { label: genderLabel, href: genderHref } : null,
                         { label: product.name, href: null }
                     ].filter(Boolean);
@@ -112,8 +112,11 @@
                     const imgSrc = (product.images && activeColor) ? product.images[activeColor] : '';
                     img.src = imgSrc;
                     img.alt = product.name;
-                    document.getElementById('prod-desc').textContent = product.description;
+                    document.getElementById('prod-desc').textContent = (window.getLang && window.getLang() === 'en' && product.description_en)
+                        ? product.description_en
+                        : product.description;
                     document.getElementById('prod-price').innerHTML = '<strong>€' + product.price.toFixed(2) + '</strong>';
+                    document.getElementById('addCart').textContent = t('product.add_cart');
                     // add color dots in dedicated container
                     const imgColors = product.images ? Object.keys(product.images) : [];
                     if (imgColors.length) {
@@ -139,7 +142,7 @@
                         const sizesContainer = document.getElementById('prod-sizes');
                         const label = document.createElement('p');
                         label.className = 'size-label';
-                        label.textContent = 'Tamanho';
+                        label.textContent = t('product.size_label');
                         sizesContainer.appendChild(label);
                         const btnGroup = document.createElement('div');
                         btnGroup.className = 'size-buttons';
@@ -157,6 +160,7 @@
                         });
                         sizesContainer.appendChild(btnGroup);
                     }
+                    document.getElementById('addCart').textContent = t('product.add_cart');
                     document.getElementById('addCart').addEventListener('click', function () { addToCart(product.id, product.name, product.price); });
                 })
                 .catch(err => {
