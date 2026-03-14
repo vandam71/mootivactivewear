@@ -16,11 +16,12 @@
 
     <div class="container">
         <div class="filter-bar" id="filterBar">
-            <a href="shop.html" class="filter-pill" data-filter="all">Todos</a>
-            <a href="shop.html?filter=new" class="filter-pill" data-filter="new">New</a>
-            <a href="shop.html?gender=women" class="filter-pill" data-gender="women">Women</a>
-            <a href="shop.html?gender=men" class="filter-pill" data-gender="men">Men</a>
-            <a href="shop.html?category=accessories" class="filter-pill" data-category="accessories">Accessories</a>
+            <a href="shop.html" class="filter-pill" data-filter="all" data-i18n="filter.all">Todos</a>
+            <a href="shop.html?filter=new" class="filter-pill" data-filter="new" data-i18n="filter.new">New</a>
+            <a href="shop.html?gender=women" class="filter-pill" data-gender="women" data-i18n="filter.women">Women</a>
+            <a href="shop.html?gender=men" class="filter-pill" data-gender="men" data-i18n="filter.men">Men</a>
+            <a href="shop.html?category=accessories" class="filter-pill" data-category="accessories"
+                data-i18n="filter.accessories">Accessories</a>
         </div>
         <div class="products" id="productsGrid">
             <!-- products will be loaded here from products.json -->
@@ -30,6 +31,7 @@
     <!-- shared footer -->
     <div id="site-footer"></div>
 
+    <script src="includes/translations.js"></script>
     <script src="includes/include.js"></script>
     <script>
         // Simple cart using localStorage
@@ -55,7 +57,7 @@
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = '';
             if (!products.length) {
-                grid.innerHTML = '<div class="empty-state"><span class="empty-state-icon">🏃</span><p class="empty-state-title">Nada por aqui ainda</p><p class="empty-state-sub">Esta categoria ainda não tem produtos disponíveis.<br>Explora a nossa coleção completa.</p><a href="shop.html" class="btn" style="margin-top:16px;">Ver toda a coleção</a></div>';
+                grid.innerHTML = '<div class="empty-state"><span class="empty-state-icon">🏃</span><p class="empty-state-title">' + t('shop.empty_title') + '</p><p class="empty-state-sub">' + t('shop.empty_sub') + '</p><a href="shop.html" class="btn" style="margin-top:16px;">' + t('shop.empty_cta') + '</a></div>';
                 return;
             }
             products.forEach(p => {
@@ -65,7 +67,7 @@
                 if (p.new) {
                     const badge = document.createElement('span');
                     badge.className = 'badge-new';
-                    badge.textContent = 'New';
+                    badge.textContent = t('filter.new');
                     card.appendChild(badge);
                 }
 
@@ -145,7 +147,7 @@
                 .catch(err => {
                     console.error('Error loading products:', err);
                     const grid = document.getElementById('productsGrid');
-                    grid.innerHTML = '<p>Erro ao carregar produtos.</p>';
+                    grid.innerHTML = '<p>' + t('shop.load_error') + '</p>';
                 });
         })();
 

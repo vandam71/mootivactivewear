@@ -14,31 +14,31 @@
     <div id="site-header"></div>
 
     <div class="container">
-        <h1 style="font-size:1.3em; font-weight:700; margin-bottom:24px;">O teu Carrinho</h1>
+        <h1 style="font-size:1.3em; font-weight:700; margin-bottom:24px;" data-i18n="cart.title">O teu Carrinho</h1>
         <div id="cartItems"></div>
         <div id="cartEmpty" class="empty-state" style="display:none;">
             <span class="empty-state-icon">🛒</span>
-            <p class="empty-state-title">O teu carrinho está vazio</p>
-            <p class="empty-state-sub">Ainda não adicionaste nada.<br>Descobre a nossa coleção e encontra o teu próximo
-                favorito.</p>
-            <a href="shop.html" class="btn" style="margin-top:16px;">Explorar coleção →</a>
+            <p class="empty-state-title" data-i18n="cart.empty_title">O teu carrinho está vazio</p>
+            <p class="empty-state-sub" data-i18n-html="cart.empty_sub">Ainda não adicionaste nada.<br>Descobre a nossa
+                coleção e encontra o teu próximo favorito.</p>
+            <a href="shop.html" class="btn" style="margin-top:16px;" data-i18n="cart.explore_btn">Explorar coleção →</a>
         </div>
         <div id="cartSummary" class="cart-summary" style="display:none;">
-            <div class="cart-note">Envio: €4.99 &nbsp;·&nbsp; IVA 23% incluído</div>
+            <div class="cart-note" data-i18n="cart.shipping_note">Envio: €4.99 &nbsp;·&nbsp; IVA 23% incluído</div>
             <div class="cart-total-row">
-                <span>Total</span>
+                <span data-i18n="cart.total">Total</span>
                 <span id="cartTotal">€0.00</span>
             </div>
-            <a href="checkout.html" class="btn" id="checkoutBtn">Finalizar Compra →</a>
+            <a href="checkout.html" class="btn" id="checkoutBtn" data-i18n="cart.checkout_btn">Finalizar Compra →</a>
         </div>
-        <a href="shop.html" class="btn btn-outline" id="continueShopping" style="margin-top:12px; display:none;">←
-            Continuar a
-            comprar</a>
+        <a href="shop.html" class="btn btn-outline" id="continueShopping" style="margin-top:12px; display:none;"
+            data-i18n="cart.continue_btn">← Continuar a comprar</a>
     </div>
 
     <!-- shared footer -->
     <div id="site-footer"></div>
 
+    <script src="includes/translations.js"></script>
     <script src="includes/include.js"></script>
     <script>
         var cachedProducts = null;
@@ -92,12 +92,12 @@
                     '<img class="cart-item-img" src="' + imgSrc + '" alt="' + item.name + '">' +
                     '<div class="cart-item-info">' +
                     '<div class="cart-item-name">' + item.name + '</div>' +
-                    (item.size ? '<div class="cart-item-meta">Tamanho: ' + item.size + '</div>' : '') +
+                    (item.size ? '<div class="cart-item-meta">' + t('cart.size') + ': ' + item.size + '</div>' : '') +
                     (item.color ? '<div class="cart-item-meta"><span class="color-dot" style="background:' + item.color + '; width:12px; height:12px; display:inline-block; border-radius:50%; border:1px solid #ccc; margin-right:4px; vertical-align:middle;"></span>' + item.color + '</div>' : '') +
                     '<div class="cart-item-meta">€' + item.price.toFixed(2) + ' × ' +
-                    '<button class="qty-btn" aria-label="Diminuir quantidade" data-idx="' + idx + '" data-delta="-1">−</button>' +
+                    '<button class="qty-btn" aria-label="' + t('cart.remove_title') + '" data-idx="' + idx + '" data-delta="-1">−</button>' +
                     '<span class="qty-val">' + item.qty + '</span>' +
-                    '<button class="qty-btn" aria-label="Aumentar quantidade" data-idx="' + idx + '" data-delta="1">+</button>' +
+                    '<button class="qty-btn" aria-label="' + t('cart.remove_title') + '" data-idx="' + idx + '" data-delta="1">+</button>' +
                     '</div>' +
                     '</div>' +
                     '<div class="cart-item-total">€' + lineTotal.toFixed(2) + '</div>' +

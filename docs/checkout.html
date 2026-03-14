@@ -15,61 +15,68 @@
 
     <div class="container">
         <nav class="breadcrumb">
-            <a href="cart.html">← Voltar ao carrinho</a>
+            <a href="cart.html" data-i18n="checkout.back">← Voltar ao carrinho</a>
             <span class="crumb-sep">›</span>
-            <span class="crumb-current">Checkout</span>
+            <span class="crumb-current" data-i18n="checkout.crumb">Checkout</span>
         </nav>
 
         <div class="checkout-layout">
             <!-- Order summary -->
             <div class="checkout-summary">
-                <h2 class="checkout-section-title">Resumo da Encomenda</h2>
+                <h2 class="checkout-section-title" data-i18n="checkout.summary_title">Resumo da Encomenda</h2>
                 <div id="orderItems"></div>
                 <div class="checkout-total-row">
-                    <span>Subtotal</span>
+                    <span data-i18n="checkout.subtotal">Subtotal</span>
                     <span id="orderTotal">€0.00</span>
                 </div>
                 <div class="checkout-total-row"
                     style="font-weight:400; font-size:0.9em; color:#666; border-top:none; margin-top:4px; padding-top:0;">
-                    <span>Envio</span>
+                    <span data-i18n="checkout.shipping">Envio</span>
                     <span>€4.99</span>
                 </div>
-                <div class="checkout-note">IVA 23% incluído no preço</div>
+                <div class="checkout-note" data-i18n="checkout.vat">IVA 23% incluído no preço</div>
             </div>
 
             <!-- Form -->
             <div class="checkout-form-wrap">
-                <h2 class="checkout-section-title">Os teus dados</h2>
+                <h2 class="checkout-section-title" data-i18n="checkout.form_title">Os teus dados</h2>
                 <form id="checkoutForm" class="checkout-form" novalidate>
                     <div class="form-group">
-                        <label for="co-name">Nome completo</label>
-                        <input type="text" id="co-name" name="name" required placeholder="Maria Silva">
+                        <label for="co-name" data-i18n="checkout.name_label">Nome completo</label>
+                        <input type="text" id="co-name" name="name" required data-i18n-placeholder="checkout.name_ph"
+                            placeholder="Maria Silva">
                     </div>
                     <div class="form-group">
-                        <label for="co-email">Email</label>
-                        <input type="email" id="co-email" name="email" required placeholder="maria@email.com">
+                        <label for="co-email" data-i18n="checkout.email_label">Email</label>
+                        <input type="email" id="co-email" name="email" required
+                            data-i18n-placeholder="checkout.email_ph" placeholder="maria@email.com">
                     </div>
                     <div class="form-group">
-                        <label for="co-phone">Telefone</label>
-                        <input type="tel" id="co-phone" name="phone" placeholder="+351 900 000 000">
+                        <label for="co-phone" data-i18n="checkout.phone_label">Telefone</label>
+                        <input type="tel" id="co-phone" name="phone" data-i18n-placeholder="checkout.phone_ph"
+                            placeholder="+351 900 000 000">
                     </div>
                     <div class="form-group">
-                        <label for="co-address">Morada</label>
-                        <input type="text" id="co-address" name="address" required placeholder="Rua Exemplo, 12">
+                        <label for="co-address" data-i18n="checkout.address_label">Morada</label>
+                        <input type="text" id="co-address" name="address" required
+                            data-i18n-placeholder="checkout.address_ph" placeholder="Rua Exemplo, 12">
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="co-zip">Código Postal</label>
-                            <input type="text" id="co-zip" name="zip" required placeholder="1000-001">
+                            <label for="co-zip" data-i18n="checkout.zip_label">Código Postal</label>
+                            <input type="text" id="co-zip" name="zip" required data-i18n-placeholder="checkout.zip_ph"
+                                placeholder="1000-001">
                         </div>
                         <div class="form-group">
-                            <label for="co-city">Cidade</label>
-                            <input type="text" id="co-city" name="city" required placeholder="Lisboa">
+                            <label for="co-city" data-i18n="checkout.city_label">Cidade</label>
+                            <input type="text" id="co-city" name="city" required
+                                data-i18n-placeholder="checkout.city_ph" placeholder="Lisboa">
                         </div>
                     </div>
-                    <div id="formError" class="form-error" style="display:none;">Por favor preenche todos os campos
-                        obrigatórios.</div>
-                    <button type="submit" class="btn" style="width:100%; margin-top:8px;">Confirmar Encomenda →</button>
+                    <div id="formError" class="form-error" style="display:none;" data-i18n="checkout.form_error">Por
+                        favor preenche todos os campos obrigatórios.</div>
+                    <button type="submit" class="btn" style="width:100%; margin-top:8px;"
+                        data-i18n="checkout.confirm_btn">Confirmar Encomenda →</button>
                 </form>
             </div>
         </div>
@@ -78,6 +85,7 @@
     <!-- shared footer -->
     <div id="site-footer"></div>
 
+    <script src="includes/translations.js"></script>
     <script src="includes/include.js"></script>
     <script>
         // Render order summary from localStorage
@@ -85,7 +93,7 @@
             var cart = JSON.parse(localStorage.getItem('cart') || '[]');
             var container = document.getElementById('orderItems');
             if (!cart.length) {
-                container.innerHTML = '<p style="color:#888">O teu carrinho está vazio. <a href="shop.html">Ver coleção</a></p>';
+                container.innerHTML = '<p style="color:#888">' + t('checkout.empty') + '</p>';
                 document.getElementById('orderTotal').textContent = '€0.00';
                 return;
             }
