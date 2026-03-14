@@ -175,6 +175,47 @@ h1 {
     border-bottom: 2px solid var(--color-accent-warm);
 }
 
+/* Shop hover dropdown */
+.main-nav .has-dropdown {
+    position: relative;
+}
+
+.main-nav .dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    min-width: 150px;
+    flex-direction: column;
+    padding: 6px 0;
+    z-index: 200;
+    list-style: none;
+    margin: 0;
+}
+
+.main-nav .has-dropdown:hover .dropdown {
+    display: flex;
+}
+
+.main-nav .dropdown li a {
+    display: block;
+    padding: 9px 18px;
+    font-size: 0.93em;
+    white-space: nowrap;
+    border-bottom: none !important;
+    letter-spacing: 0.3px;
+}
+
+.main-nav .dropdown li a:hover {
+    background: #faf5f3;
+    color: var(--color-accent-warm);
+}
+
 /* Footer styling */
 .site-footer {
     width: 100%;
@@ -824,6 +865,25 @@ h1 {
 
     .main-nav ul li:last-child a {
         border-bottom: none;
+    }
+
+    .main-nav .has-dropdown .dropdown {
+        display: flex;
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        min-width: unset;
+        background: transparent;
+    }
+
+    .main-nav .has-dropdown .dropdown li a {
+        padding: 10px 20px 10px 36px;
+        font-size: 0.9em;
+        color: #666;
+        border-bottom: 1px solid #f0f0f0 !important;
     }
 
     /* Typography */
