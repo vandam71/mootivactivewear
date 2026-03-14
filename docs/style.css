@@ -156,6 +156,26 @@ h1 {
     color: var(--color-accent-warm);
 }
 
+.lang-toggle {
+    background: none;
+    border: 1.5px solid #ccc;
+    border-radius: 99px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 4px 10px;
+    color: #666;
+    transition: border-color 0.15s, color 0.15s;
+    line-height: 1;
+}
+
+.lang-toggle:hover {
+    border-color: var(--color-accent-warm);
+    color: var(--color-accent-warm);
+}
+
 .main-nav ul li a {
     color: #222;
     text-decoration: none;

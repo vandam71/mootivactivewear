@@ -8,19 +8,20 @@
         <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
                 <li class="has-dropdown">
-                    <a href="shop.html">Shop</a>
+                    <a href="shop.html" data-i18n="nav.shop">Shop</a>
                     <ul class="dropdown">
-                        <li><a href="shop.html?gender=women">Women</a></li>
-                        <li><a href="shop.html?gender=men">Men</a></li>
-                        <li><a href="shop.html?category=accessories">Accessories</a></li>
+                        <li><a href="shop.html?gender=women" data-i18n="nav.women">Women</a></li>
+                        <li><a href="shop.html?gender=men" data-i18n="nav.men">Men</a></li>
+                        <li><a href="shop.html?category=accessories" data-i18n="nav.accessories">Accessories</a></li>
                     </ul>
                 </li>
-                <li><a href="shop.html?filter=new">New In</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html?filter=new" data-i18n="nav.newin">New In</a></li>
+                <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
             </ul>
         </nav>
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
         <a href="cart.html" class="cart-link">🛒 <span id="cart-count" class="cart-count"></span></a>
     </div>
 </header>
