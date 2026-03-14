@@ -2,13 +2,10 @@ window.TRANSLATIONS = {
     // PT: only keys used by JS-rendered content.
     // Static HTML pages already have PT text baked in, so applyTranslations() skips PT entirely.
     pt: {
-        "filter.new": "New",
+        "filter.new": "Novidades",
         "product.add_cart": "Adicionar ao Carrinho",
         "product.added": "✓ Adicionado",
         "product.size_label": "Tamanho",
-        "product.crumb_shop": "Shop",
-        "product.crumb_women": "Women",
-        "product.crumb_men": "Men",
         "cart.size": "Tamanho",
         "cart.remove_title": "Remover",
         "checkout.empty": "O teu carrinho está vazio. <a href=\"shop.html\">Ver coleção</a>",
@@ -23,14 +20,14 @@ window.TRANSLATIONS = {
         "nav.shop": "Shop",
         "nav.newin": "New In",
         "nav.about": "About Us",
-        "nav.women": "Women",
-        "nav.men": "Men",
+        "nav.women": "Woman",
+        "nav.men": "Man",
         "nav.accessories": "Accessories",
         // Filter bar
         "filter.all": "All",
         "filter.new": "New",
-        "filter.women": "Women",
-        "filter.men": "Men",
+        "filter.women": "Woman",
+        "filter.men": "Man",
         "filter.accessories": "Accessories",
         // Home page
         "home.intro": "The Green 1.0 Collection is live. Come explore it!",
@@ -46,9 +43,6 @@ window.TRANSLATIONS = {
         "product.add_cart": "Add to Cart",
         "product.added": "✓ Added",
         "product.size_label": "Size",
-        "product.crumb_shop": "Shop",
-        "product.crumb_women": "Women",
-        "product.crumb_men": "Men",
         // Cart page
         "cart.title": "Your Cart",
         "cart.empty_title": "Your cart is empty",
@@ -93,7 +87,7 @@ window.TRANSLATIONS = {
         "about.antibacterial_body": "The technology behind our pieces is a natural antibacterial finish, developed using compounds derived from olive oil production waste. This natural-based innovation helps keep fabrics fresher for longer, by reducing odor-causing bacteria.",
         "about.cta": "Green 1.0 Collection",
         // Footer
-        "footer.tagline": "We move together.",
+        "footer.tagline": "We moove together.",
         // Shop
         "shop.load_error": "Error loading products.",
         "shop.empty_title": "Nothing here yet",
