@@ -11,10 +11,10 @@
       "gender": "women",
       "new": true,
       "images": {
-        "#000000": "products/images/green-top.jpg",
-        "#6b4423": "products/images/green-top.jpg",
-        "#ffffff": "products/images/green-top.jpg",
-        "#008000": "products/images/green-top.jpg"
+        "#000000": ["products/images/green-top.jpg"],
+        "#6b4423": ["products/images/green-top.jpg"],
+        "#ffffff": ["products/images/green-top.jpg"],
+        "#008000": ["products/images/green-top.jpg"]
       },
       "sizes": [
         "XS",
@@ -35,9 +35,9 @@
       "gender": "men",
       "new": false,
       "images": {
-        "#000000": "products/images/green-tshirt.png",
-        "#000080": "products/images/green-tshirt.png",
-        "#ffffff": "products/images/green-tshirt.png"
+        "#000000": ["products/images/green-tshirt.png"],
+        "#000080": ["products/images/green-tshirt.png"],
+        "#ffffff": ["products/images/green-tshirt.png"]
       },
       "sizes": [
         "S",
@@ -58,9 +58,9 @@
       "gender": "women",
       "new": true,
       "images": {
-        "#000000": "products/images/green-leggings.png",
-        "#6b4423": "products/images/green-leggings.png",
-        "#008000": "products/images/green-leggings.png"
+        "#000000": ["products/images/green-leggings.png"],
+        "#6b4423": ["products/images/green-leggings.png"],
+        "#008000": ["products/images/green-leggings.png"]
       },
       "sizes": [
         "XS",
@@ -81,10 +81,10 @@
       "gender": "men",
       "new": false,
       "images": {
-        "#000000": "products/images/green-shorts.png",
-        "#000080": "products/images/green-shorts.png",
-        "#008000": "products/images/green-shorts.png",
-        "#ffffff": "products/images/green-shorts.png"
+        "#000000": ["products/images/green-shorts.png"],
+        "#000080": ["products/images/green-shorts.png"],
+        "#008000": ["products/images/green-shorts.png"],
+        "#ffffff": ["products/images/green-shorts.png"]
       },
       "sizes": [
         "S",
@@ -105,8 +105,8 @@
       "gender": "men",
       "new": false,
       "images": {
-        "#000000": "products/images/green-hoodie.png",
-        "#ffffff": "products/images/green-hoodie.png"
+        "#000000": ["products/images/green-hoodie.png", "products/images/green-hoodie-women.jpg"],
+        "#ffffff": ["products/images/green-hoodie.png"]
       },
       "sizes": [
         "S",
