@@ -52,12 +52,6 @@ h1 {
     margin: 6px 0 14px;
 }
 
-.subtitle {
-    margin-top: -10px;
-    font-size: 14px;
-    color: #666;
-}
-
 .btn {
     display: inline-block;
     background: var(--color-accent-warm);
@@ -144,11 +138,6 @@ h1 {
     align-items: center;
 }
 
-.nav-bottom-bar {
-    height: 8px;
-    background: #f0e0d8;
-}
-
 .cart-link {
     color: #222;
     text-decoration: none;
@@ -165,15 +154,6 @@ h1 {
 
 .cart-link:hover {
     color: var(--color-accent-warm);
-}
-
-.main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
 }
 
 .main-nav ul li a {
@@ -200,20 +180,6 @@ h1 {
     width: 100%;
     max-width: 100%;
     background: transparent;
-}
-
-.site-footer .footer-top {
-    width: 100%;
-    overflow: hidden;
-}
-
-.site-footer .footer-top .wide-img {
-    width: 100%;
-    height: auto;
-    max-height: 120px;
-    object-fit: cover;
-    display: block;
-    border-radius: 0;
 }
 
 .site-footer .footer-content {
@@ -394,30 +360,10 @@ h1 {
     text-decoration: none;
 }
 
-.product a img {
-    border-radius: 8px;
-}
-
-.product .btn {
-    margin-top: 8px;
-    width: 100%;
-    padding: 10px;
-    font-size: 13px;
-}
-
 .features {
     text-align: left;
     margin: 20px 0;
     line-height: 1.6;
-}
-
-.footer {
-    margin-top: 30px;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
 }
 
 /* Cart / Checkout */
