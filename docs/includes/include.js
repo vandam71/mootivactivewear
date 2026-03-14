@@ -16,6 +16,8 @@
 
     function applyTranslations() {
         var lang = window.getLang ? window.getLang() : 'pt';
+        // PT text is already baked into the HTML; only do DOM updates for non-PT languages
+        if (lang === 'pt') return;
         var dict = window.TRANSLATIONS && window.TRANSLATIONS[lang] || {};
         document.querySelectorAll('[data-i18n]').forEach(function (el) {
             var key = el.getAttribute('data-i18n');

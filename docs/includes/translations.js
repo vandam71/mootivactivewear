@@ -1,82 +1,17 @@
 window.TRANSLATIONS = {
+    // PT: only keys used by JS-rendered content.
+    // Static HTML pages already have PT text baked in, so applyTranslations() skips PT entirely.
     pt: {
-        // Nav
-        "nav.home": "Home",
-        "nav.shop": "Shop",
-        "nav.newin": "New In",
-        "nav.about": "About Us",
-        "nav.women": "Women",
-        "nav.men": "Men",
-        "nav.accessories": "Accessories",
-        // Filter bar
-        "filter.all": "Todos",
         "filter.new": "New",
-        "filter.women": "Women",
-        "filter.men": "Men",
-        "filter.accessories": "Accessories",
-        // Home page
-        "home.intro": "A Green 1.0 Collection já está disponível. Anda conhecê-la!",
-        "home.cta": "Ir para a coleção",
-        "home.para1_line1": "Uma coleção criada com a natureza e a inovação em mente.",
-        "home.para1_line2": "Transformamos o desperdício da produção de azeite em desempenho real.",
-        "home.feat1": "Leve.",
-        "home.feat2": "Respirável.",
-        "home.feat3": "Com acabamento antibacteriano.",
-        "home.feat4": "Pronta para te acompanhar em cada movimento.",
-        // Product page (JS-generated)
-        "product.loading": "Carregando...",
         "product.add_cart": "Adicionar ao Carrinho",
         "product.added": "✓ Adicionado",
         "product.size_label": "Tamanho",
         "product.crumb_shop": "Shop",
         "product.crumb_women": "Women",
         "product.crumb_men": "Men",
-        // Cart page
-        "cart.title": "O teu Carrinho",
-        "cart.empty_title": "O teu carrinho está vazio",
-        "cart.empty_sub": "Ainda não adicionaste nada.<br>Descobre a nossa coleção e encontra o teu próximo favorito.",
-        "cart.explore_btn": "Explorar coleção →",
-        "cart.shipping_note": "Envio: €4.99 · IVA 23% incluído",
-        "cart.total": "Total",
-        "cart.checkout_btn": "Finalizar Compra →",
-        "cart.continue_btn": "← Continuar a comprar",
         "cart.size": "Tamanho",
         "cart.remove_title": "Remover",
-        // Checkout page
-        "checkout.back": "← Voltar ao carrinho",
-        "checkout.crumb": "Checkout",
-        "checkout.summary_title": "Resumo da Encomenda",
-        "checkout.subtotal": "Subtotal",
-        "checkout.shipping": "Envio",
-        "checkout.vat": "IVA 23% incluído no preço",
-        "checkout.form_title": "Os teus dados",
-        "checkout.name_label": "Nome completo",
-        "checkout.name_ph": "Maria Silva",
-        "checkout.email_label": "Email",
-        "checkout.email_ph": "maria@email.com",
-        "checkout.phone_label": "Telefone",
-        "checkout.phone_ph": "+351 900 000 000",
-        "checkout.address_label": "Morada",
-        "checkout.address_ph": "Rua Exemplo, 12",
-        "checkout.zip_label": "Código Postal",
-        "checkout.zip_ph": "1000-001",
-        "checkout.city_label": "Cidade",
-        "checkout.city_ph": "Lisboa",
-        "checkout.form_error": "Por favor preenche todos os campos obrigatórios.",
-        "checkout.confirm_btn": "Confirmar Encomenda →",
         "checkout.empty": "O teu carrinho está vazio. <a href=\"shop.html\">Ver coleção</a>",
-        // About page
-        "about.title": "Sobre Nós",
-        "about.intro": "A nossa marca nasce da necessidade de ligar o movimento ao propósito.",
-        "about.story1": "Transformamos os resíduos da produção de azeite e fibras recicladas em tecidos funcionais, antibacterianos, produzidos em pequenas séries em Portugal.",
-        "about.story2": "Cada peça é criada para combinar durabilidade e performance, com um design que se move naturalmente com o ritmo real de uma corrida.",
-        "about.intention": "Vestimos pessoas que se movem com intenção.",
-        "about.antibacterial_title": "Acabamento Antibacteriano",
-        "about.antibacterial_body": "A tecnologia por detrás das nossas peças é um acabamento antibacteriano natural, desenvolvido com compostos derivados dos resíduos da produção de azeite. Esta inovação de base natural ajuda a manter os tecidos frescos por mais tempo, reduzindo as bactérias causadoras de odor.",
-        "about.cta": "Coleção Green 1.0",
-        // Footer
-        "footer.tagline": "Movemo-nos juntos.",
-        // Shop
         "shop.load_error": "Erro ao carregar produtos.",
         "shop.empty_title": "Nada por aqui ainda",
         "shop.empty_sub": "Esta categoria ainda não tem produtos disponíveis.<br>Explora a nossa coleção completa.",
@@ -175,7 +110,7 @@ window.t = function (key) {
     var lang = window.getLang();
     var dict = window.TRANSLATIONS[lang];
     if (dict && dict[key] !== undefined) return dict[key];
-    // fallback to pt
-    var fallback = window.TRANSLATIONS['pt'];
-    return (fallback && fallback[key] !== undefined) ? fallback[key] : key;
+    // fallback to English as the complete reference dictionary
+    var en = window.TRANSLATIONS['en'];
+    return (en && en[key] !== undefined) ? en[key] : key;
 };
