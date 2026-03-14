@@ -30,6 +30,7 @@
                 <button id="addCart" class="btn">Adicionar ao Carrinho</button>
             </div>
         </div>
+        <div id="prod-accordion" class="prod-accordion"></div>
     </div>
 
     <!-- shared footer -->
@@ -195,6 +196,88 @@
                     }
                     document.getElementById('addCart').textContent = t('product.add_cart');
                     document.getElementById('addCart').addEventListener('click', function () { addToCart(product.id, product.name, product.price, activeColor || ''); });
+
+                    // --- Accordion sections ---
+                    const accordion = document.getElementById('prod-accordion');
+                    const lang = window.getLang ? window.getLang() : 'pt';
+
+                    // 1. Características
+                    if (product.characteristics && product.characteristics.length) {
+                        const details = document.createElement('details');
+                        details.className = 'prod-accordion-item';
+                        const summary = document.createElement('summary');
+                        summary.textContent = t('product.section_chars');
+                        details.appendChild(summary);
+                        const table = document.createElement('table');
+                        table.className = 'chars-table';
+                        product.characteristics.forEach(c => {
+                            const tr = document.createElement('tr');
+                            const th = document.createElement('th');
+                            th.textContent = lang === 'en' && c.label_en ? c.label_en : c.label;
+                            const td = document.createElement('td');
+                            td.textContent = lang === 'en' && c.value_en ? c.value_en : c.value;
+                            tr.appendChild(th);
+                            tr.appendChild(td);
+                            table.appendChild(tr);
+                        });
+                        details.appendChild(table);
+                        accordion.appendChild(details);
+                    }
+
+                    // 2. Guia de Tamanhos
+                    if (product.size_guide) {
+                        const sg = product.size_guide;
+                        const details = document.createElement('details');
+                        details.className = 'prod-accordion-item';
+                        const summary = document.createElement('summary');
+                        summary.textContent = t('product.section_sizes');
+                        details.appendChild(summary);
+                        const table = document.createElement('table');
+                        table.className = 'size-guide-table';
+                        const headers = lang === 'en' && sg.headers_en ? sg.headers_en : sg.headers;
+                        const thead = document.createElement('thead');
+                        const headRow = document.createElement('tr');
+                        headers.forEach(h => { const th = document.createElement('th'); th.textContent = h; headRow.appendChild(th); });
+                        thead.appendChild(headRow);
+                        table.appendChild(thead);
+                        const tbody = document.createElement('tbody');
+                        sg.rows.forEach(row => {
+                            const tr = document.createElement('tr');
+                            row.forEach(cell => { const td = document.createElement('td'); td.textContent = cell; tr.appendChild(td); });
+                            tbody.appendChild(tr);
+                        });
+                        table.appendChild(tbody);
+                        details.appendChild(table);
+                        accordion.appendChild(details);
+                    }
+
+                    // 3. Rastreabilidade
+                    if (product.traceability) {
+                        const tr_ = product.traceability;
+                        const details = document.createElement('details');
+                        details.className = 'prod-accordion-item';
+                        const summary = document.createElement('summary');
+                        summary.textContent = t('product.section_trace');
+                        details.appendChild(summary);
+                        const table = document.createElement('table');
+                        table.className = 'chars-table';
+                        const rows = [
+                            [t('product.trace_origin'), lang === 'en' ? tr_.origin_en : tr_.origin],
+                            [t('product.trace_material'), lang === 'en' ? tr_.material_source_en : tr_.material_source],
+                            [t('product.trace_manufacturer'), lang === 'en' ? tr_.manufacturer_en : tr_.manufacturer],
+                            [t('product.trace_certifications'), (tr_.certifications || []).join(' · ')],
+                            [t('product.trace_carbon'), lang === 'en' ? tr_.carbon_footprint_en : tr_.carbon_footprint]
+                        ];
+                        rows.forEach(([label, value]) => {
+                            const tr = document.createElement('tr');
+                            const th = document.createElement('th'); th.textContent = label;
+                            const td = document.createElement('td'); td.textContent = value;
+                            tr.appendChild(th); tr.appendChild(td);
+                            table.appendChild(tr);
+                        });
+                        details.appendChild(table);
+                        accordion.appendChild(details);
+                    }
                 })
                 .catch(err => {
                     console.error('Error loading product data:', err);
