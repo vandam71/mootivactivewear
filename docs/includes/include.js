@@ -79,9 +79,9 @@
             if ((path.endsWith('index.html') || path.endsWith('/')) && url.pathname.endsWith('index.html')) {
                 if (!filter && !gender && !category) link.classList.add('active');
             }
-            // Shop link active on shop.html with no filters
+            // Shop link active on all shop.html pages (with or without filters)
             if (path.endsWith('shop.html') && url.pathname.endsWith('shop.html') && !url.search) {
-                if (!filter && !gender && !category) link.classList.add('active');
+                link.classList.add('active');
             }
             // About Us link active on about.html
             if (path.endsWith('about.html') && url.pathname.endsWith('about.html')) {
