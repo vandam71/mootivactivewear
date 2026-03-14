@@ -14,6 +14,38 @@
         });
     }
 
+    function applyTranslations() {
+        var lang = window.getLang ? window.getLang() : 'pt';
+        var dict = window.TRANSLATIONS && window.TRANSLATIONS[lang] || {};
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n');
+            if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n-html');
+            if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n-placeholder');
+            if (dict[key] !== undefined) el.placeholder = dict[key];
+        });
+        document.documentElement.lang = lang;
+    }
+
+    function setupLangToggle() {
+        var btn = document.querySelector('#site-header #langToggle');
+        if (!btn) return;
+        var lang = window.getLang ? window.getLang() : 'pt';
+        btn.textContent = lang === 'pt' ? 'EN' : 'PT';
+        btn.addEventListener('click', function () {
+            var newLang = (window.getLang ? window.getLang() : 'pt') === 'pt' ? 'en' : 'pt';
+            localStorage.setItem('lang', newLang);
+            window.location.reload();
+        });
+    }
+
+    window.applyTranslations = applyTranslations;
+
     function setupNavToggle() {
         var btn = document.querySelector('#site-header .nav-toggle');
         var nav = document.querySelector('#site-header .main-nav');
@@ -41,7 +73,7 @@
         links.forEach(function (link) {
             var url = new URL(link.href, window.location.origin);
             link.classList.remove('active');
-            // Info link active on index.html with no filters
+            // Home link active on index.html with no filters
             if ((path.endsWith('index.html') || path.endsWith('/')) && url.pathname.endsWith('index.html')) {
                 if (!filter && !gender && !category) link.classList.add('active');
             }
@@ -72,11 +104,16 @@
     window.updateCartCount = updateCartCount;
 
     document.addEventListener('DOMContentLoaded', function () {
+        applyTranslations();
         loadFragment('site-header', 'includes/header.html', function () {
             markActiveNav();
             updateCartCount();
             setupNavToggle();
+            applyTranslations();
+            setupLangToggle();
         });
-        loadFragment('site-footer', 'includes/footer.html');
+        loadFragment('site-footer', 'includes/footer.html', function () {
+            applyTranslations();
+        });
     });
 })();
