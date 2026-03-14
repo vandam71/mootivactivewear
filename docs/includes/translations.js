@@ -2,7 +2,7 @@ window.TRANSLATIONS = {
     // PT: only keys used by JS-rendered content.
     // Static HTML pages already have PT text baked in, so applyTranslations() skips PT entirely.
     pt: {
-        "filter.new": "New",
+        "filter.new": "Novidades",
         "product.add_cart": "Adicionar ao Carrinho",
         "product.added": "✓ Adicionado",
         "product.size_label": "Tamanho",
@@ -47,8 +47,8 @@ window.TRANSLATIONS = {
         "product.added": "✓ Added",
         "product.size_label": "Size",
         "product.crumb_shop": "Shop",
-        "product.crumb_women": "Women",
-        "product.crumb_men": "Men",
+        "product.crumb_women": "Woman",
+        "product.crumb_men": "Man",
         // Cart page
         "cart.title": "Your Cart",
         "cart.empty_title": "Your cart is empty",
@@ -93,7 +93,7 @@ window.TRANSLATIONS = {
         "about.antibacterial_body": "The technology behind our pieces is a natural antibacterial finish, developed using compounds derived from olive oil production waste. This natural-based innovation helps keep fabrics fresher for longer, by reducing odor-causing bacteria.",
         "about.cta": "Green 1.0 Collection",
         // Footer
-        "footer.tagline": "We move together.",
+        "footer.tagline": "We moove together.",
         // Shop
         "shop.load_error": "Error loading products.",
         "shop.empty_title": "Nothing here yet",
