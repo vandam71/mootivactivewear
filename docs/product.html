@@ -91,10 +91,10 @@
                     if (metaDesc) metaDesc.setAttribute('content', product.description);
                     // breadcrumb
                     const crumbNav = document.getElementById('breadcrumb');
-                    const genderLabel = product.gender === 'women' ? t('product.crumb_women') : product.gender === 'men' ? t('product.crumb_men') : null;
+                    const genderLabel = product.gender === 'women' ? t('nav.women') : product.gender === 'men' ? t('nav.men') : null;
                     const genderHref = product.gender ? 'shop.html?gender=' + product.gender : null;
                     const crumbs = [
-                        { label: t('product.crumb_shop'), href: 'shop.html' },
+                        { label: t('nav.shop'), href: 'shop.html' },
                         genderLabel ? { label: genderLabel, href: genderHref } : null,
                         { label: product.name, href: null }
                     ].filter(Boolean);
