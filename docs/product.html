@@ -109,9 +109,43 @@
                     const activeColor = (selectedColor && product.images && product.images[selectedColor])
                         ? selectedColor
                         : firstColor;
-                    const imgSrc = (product.images && activeColor) ? product.images[activeColor] : '';
-                    img.src = imgSrc;
+
+                    // normalise: always work with an array of image paths per color
+                    function getImgArray(images, color) {
+                        const val = images && color ? images[color] : null;
+                        if (!val) return [];
+                        return Array.isArray(val) ? val : [val];
+                    }
+
+                    const activeImages = getImgArray(product.images, activeColor);
+                    let imgIdx = 0;
+                    img.src = activeImages[0] || '';
                     img.alt = product.name;
+
+                    // Gallery prev / next (only rendered when a color has > 1 image)
+                    const wrapper = img.closest('.img-color-wrapper');
+                    const prevBtn = document.createElement('button');
+                    const nextBtn = document.createElement('button');
+                    prevBtn.className = 'gallery-nav prev';
+                    nextBtn.className = 'gallery-nav next';
+                    prevBtn.setAttribute('aria-label', 'Imagem anterior');
+                    nextBtn.setAttribute('aria-label', 'Próxima imagem');
+                    prevBtn.innerHTML = '&#8249;';
+                    nextBtn.innerHTML = '&#8250;';
+
+                    function updateGallery() {
+                        img.src = activeImages[imgIdx];
+                        prevBtn.style.display = activeImages.length > 1 ? 'flex' : 'none';
+                        nextBtn.style.display = activeImages.length > 1 ? 'flex' : 'none';
+                        prevBtn.disabled = imgIdx === 0;
+                        nextBtn.disabled = imgIdx === activeImages.length - 1;
+                    }
+
+                    prevBtn.addEventListener('click', function () { if (imgIdx > 0) { imgIdx--; updateGallery(); } });
+                    nextBtn.addEventListener('click', function () { if (imgIdx < activeImages.length - 1) { imgIdx++; updateGallery(); } });
+                    wrapper.appendChild(prevBtn);
+                    wrapper.appendChild(nextBtn);
+                    updateGallery();
                     document.getElementById('prod-desc').textContent = (window.getLang && window.getLang() === 'en' && product.description_en)
                         ? product.description_en
                         : product.description;

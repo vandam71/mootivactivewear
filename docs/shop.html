@@ -78,7 +78,8 @@
                 imgLink.href = 'product.html?id=' + encodeURIComponent(p.id);
 
                 const img = document.createElement('img');
-                img.src = (p.images && Object.keys(p.images).length) ? p.images[Object.keys(p.images)[0]] : '';
+                const _firstVal = (p.images && Object.keys(p.images).length) ? p.images[Object.keys(p.images)[0]] : '';
+                img.src = Array.isArray(_firstVal) ? _firstVal[0] : (_firstVal || '');
                 img.alt = p.name;
                 img.loading = 'lazy';
                 imgLink.appendChild(img);
