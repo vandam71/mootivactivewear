@@ -103,10 +103,12 @@
                         else { const span = document.createElement('span'); span.className = 'crumb-current'; span.textContent = c.label; crumbNav.appendChild(span); }
                     });
                     const img = document.getElementById('prod-image');
-                    // use image for selected color, or first color, or default
-                    const imgSrc = (product.images && selectedColor && product.images[selectedColor])
-                        ? product.images[selectedColor]
-                        : (product.images ? product.images[Object.keys(product.images)[0]] : '');
+                    // resolve active color: use URL param, or fall back to first color
+                    const firstColor = product.images ? Object.keys(product.images)[0] : null;
+                    const activeColor = (selectedColor && product.images && product.images[selectedColor])
+                        ? selectedColor
+                        : firstColor;
+                    const imgSrc = (product.images && activeColor) ? product.images[activeColor] : '';
                     img.src = imgSrc;
                     img.alt = product.name;
                     document.getElementById('prod-desc').textContent = product.description;
@@ -123,7 +125,7 @@
                             const d = document.createElement('span');
                             d.className = 'color-dot';
                             d.style.background = c;
-                            if (selectedColor && selectedColor === c) {
+                            if (activeColor === c) {
                                 d.classList.add('selected');
                             }
                             linkDot.appendChild(d);
