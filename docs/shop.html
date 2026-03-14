@@ -155,7 +155,7 @@
             var filter = params.get('filter');
             var gender = params.get('gender');
             var category = params.get('category');
-            document.querySelectorAll('#filterBar .filter-pill').forEach(function(pill) {
+            document.querySelectorAll('#filterBar .filter-pill').forEach(function (pill) {
                 pill.classList.remove('active');
                 if (!filter && !gender && !category && pill.dataset.filter === 'all') {
                     pill.classList.add('active');
