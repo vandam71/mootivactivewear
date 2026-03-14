@@ -68,7 +68,8 @@ window.TRANSLATIONS = {
         // About page
         "about.title": "Sobre Nós",
         "about.intro": "A nossa marca nasce da necessidade de ligar o movimento ao propósito.",
-        "about.story": "Transformamos os resíduos da produção de azeite e fibras recicladas em tecidos funcionais, antibacterianos, produzidos em pequenas séries em Portugal. Cada peça é criada para combinar durabilidade e performance, com um design que se move naturalmente com o ritmo real de uma corrida.",
+        "about.story1": "Transformamos os resíduos da produção de azeite e fibras recicladas em tecidos funcionais, antibacterianos, produzidos em pequenas séries em Portugal.",
+        "about.story2": "Cada peça é criada para combinar durabilidade e performance, com um design que se move naturalmente com o ritmo real de uma corrida.",
         "about.intention": "Vestimos pessoas que se movem com intenção.",
         "about.antibacterial_title": "Acabamento Antibacteriano",
         "about.antibacterial_body": "A tecnologia por detrás das nossas peças é um acabamento antibacteriano natural, desenvolvido com compostos derivados dos resíduos da produção de azeite. Esta inovação de base natural ajuda a manter os tecidos frescos por mais tempo, reduzindo as bactérias causadoras de odor.",
@@ -150,7 +151,8 @@ window.TRANSLATIONS = {
         // About page
         "about.title": "About Us",
         "about.intro": "Our brand is born from the need to connect movement with purpose.",
-        "about.story": "We transform olive production waste and recycled fibres into functional, antibacterial fabrics, produced in small batches in Portugal. Each piece is designed to combine durability and performance, with a design that moves naturally with the real rhythm of a run.",
+        "about.story1": "We transform olive production waste and recycled fibres into functional, antibacterial fabrics, produced in small batches in Portugal.",
+        "about.story2": "Each piece is designed to combine durability and performance, with a design that moves naturally with the real rhythm of a run.",
         "about.intention": "We dress people who move with intention.",
         "about.antibacterial_title": "Antibacterial finish",
         "about.antibacterial_body": "The technology behind our pieces is a natural antibacterial finish, developed using compounds derived from olive oil production waste. This natural-based innovation helps keep fabrics fresher for longer, by reducing odor-causing bacteria.",
