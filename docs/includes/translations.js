@@ -67,10 +67,12 @@ window.TRANSLATIONS = {
         "checkout.empty": "O teu carrinho está vazio. <a href=\"shop.html\">Ver coleção</a>",
         // About page
         "about.title": "Sobre Nós",
-        "about.story": "A Mootiv Active nasceu da vontade de criar roupa desportiva que respeita o planeta sem comprometer o desempenho.",
-        "about.mission": "A nossa missão é transformar resíduos em performance — cada peça é confeccionada com materiais reciclados e sustentáveis.",
-        "about.sustain": "Acreditamos que cada movimento conta. Veste o futuro.",
-        "about.cta": "Explorar a coleção",
+        "about.intro": "A nossa marca nasce da necessidade de ligar o movimento ao propósito.",
+        "about.story": "Transformamos os resíduos da produção de azeite e fibras recicladas em tecidos funcionais, antibacterianos, produzidos em pequenas séries em Portugal. Cada peça é criada para combinar durabilidade e performance, com um design que se move naturalmente com o ritmo real de uma corrida.",
+        "about.intention": "Vestimos pessoas que se movem com intenção.",
+        "about.antibacterial_title": "Acabamento Antibacteriano",
+        "about.antibacterial_body": "A tecnologia por detrás das nossas peças é um acabamento antibacteriano natural, desenvolvido com compostos derivados dos resíduos da produção de azeite. Esta inovação de base natural ajuda a manter os tecidos frescos por mais tempo, reduzindo as bactérias causadoras de odor.",
+        "about.cta": "Coleção Green 1.0",
         // Footer
         "footer.tagline": "Movemo-nos juntos.",
         // Shop
@@ -147,10 +149,12 @@ window.TRANSLATIONS = {
         "checkout.empty": "Your cart is empty. <a href=\"shop.html\">View collection</a>",
         // About page
         "about.title": "About Us",
-        "about.story": "Mootiv Active was born from the desire to create sportswear that respects the planet without compromising performance.",
-        "about.mission": "Our mission is to transform waste into performance — each piece is made with recycled and sustainable materials.",
-        "about.sustain": "We believe every movement counts. Wear the future.",
-        "about.cta": "Explore the collection",
+        "about.intro": "Our brand is born from the need to connect movement with purpose.",
+        "about.story": "We transform olive production waste and recycled fibres into functional, antibacterial fabrics, produced in small batches in Portugal. Each piece is designed to combine durability and performance, with a design that moves naturally with the real rhythm of a run.",
+        "about.intention": "We dress people who move with intention.",
+        "about.antibacterial_title": "Antibacterial finish",
+        "about.antibacterial_body": "The technology behind our pieces is a natural antibacterial finish, developed using compounds derived from olive oil production waste. This natural-based innovation helps keep fabrics fresher for longer, by reducing odor-causing bacteria.",
+        "about.cta": "Green 1.0 Collection",
         // Footer
         "footer.tagline": "We move together.",
         // Shop
