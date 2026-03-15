@@ -12,7 +12,7 @@
       "gender": "women",
       "new": true,
       "images": {
-        "#143436": ["products/images/green-leggings.webp", "products/images/green-leggings-2.webp"]
+        "#143436": ["products/images/green-leggings.png", "products/images/green-leggings-2.png"]
       },
       "sizes": ["XS", "S", "M", "L", "XL"],
       "characteristics": [
@@ -58,7 +58,7 @@
       "gender": "women",
       "new": true,
       "images": {
-        "#143436": ["products/images/green-shorts-women.webp", "products/images/green-shorts-women-2.webp"]
+        "#143436": ["products/images/green-shorts-women.png", "products/images/green-shorts-women-2.png"]
       },
       "sizes": ["XS", "S", "M", "L", "XL"],
       "characteristics": [
@@ -104,7 +104,7 @@
       "gender": "women",
       "new": true,
       "images": {
-        "#2a2d3e": ["products/images/green-top.webp", "products/images/green-top-2.webp"]
+        "#2a2d3e": ["products/images/green-top.png", "products/images/green-top-2.png"]
       },
       "sizes": ["XS", "S", "M", "L", "XL"],
       "characteristics": [
@@ -150,7 +150,7 @@
       "gender": "women",
       "new": true,
       "images": {
-        "#2a2d3e": ["products/images/green-top-11.webp", "products/images/green-top-11-2.webp"]
+        "#2a2d3e": ["products/images/green-top-11.png", "products/images/green-top-11-2.png"]
       },
       "sizes": ["XS", "S", "M", "L", "XL"],
       "characteristics": [
@@ -196,7 +196,7 @@
       "gender": "men",
       "new": true,
       "images": {
-        "#143436": ["products/images/green-pants.webp", "products/images/green-pants-2.webp"]
+        "#143436": ["products/images/green-pants.png", "products/images/green-pants-2.png"]
       },
       "sizes": ["S", "M", "L", "XL", "XXL"],
       "characteristics": [
@@ -242,7 +242,7 @@
       "gender": "men",
       "new": true,
       "images": {
-        "#171417": ["products/images/green-shorts-men.webp", "products/images/green-shorts-men-2.webp"]
+        "#171417": ["products/images/green-shorts-men.png", "products/images/green-shorts-men-2.png"]
       },
       "sizes": ["S", "M", "L", "XL", "XXL"],
       "characteristics": [
@@ -288,7 +288,7 @@
       "gender": "men",
       "new": true,
       "images": {
-        "#f0f0f0": ["products/images/green-tshirt.webp", "products/images/green-tshirt-2.webp"]
+        "#f0f0f0": ["products/images/green-tshirt.png", "products/images/green-tshirt-2.png"]
       },
       "sizes": ["S", "M", "L", "XL", "XXL"],
       "characteristics": [
@@ -375,7 +375,7 @@
       "gender": "unisex",
       "new": true,
       "images": {
-        "#ffffff": ["products/images/green-socks.webp"]
+        "#ffffff": ["products/images/green-socks.png"]
       },
       "sizes": ["S/M (35–38)", "M/L (39–42)", "L/XL (43–46)"],
       "characteristics": [
