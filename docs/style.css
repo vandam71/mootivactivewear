@@ -343,7 +343,9 @@ h1 {
     user-select: none;
 }
 
-.prod-accordion-item summary::-webkit-details-marker { display: none; }
+.prod-accordion-item summary::-webkit-details-marker {
+    display: none;
+}
 
 .prod-accordion-item summary::after {
     content: '+';
@@ -357,7 +359,7 @@ h1 {
     content: '−';
 }
 
-.prod-accordion-item > table {
+.prod-accordion-item>table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.88em;
@@ -399,7 +401,9 @@ h1 {
     background: #fafafa;
 }
 
-.size-guide-table tbody tr:last-child td { border-bottom: none; }
+.size-guide-table tbody tr:last-child td {
+    border-bottom: none;
+}
 
 /* Empty state */
 .empty-state {
