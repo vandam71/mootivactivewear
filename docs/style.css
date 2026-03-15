@@ -734,8 +734,13 @@ h1 {
     min-height: 1em;
 }
 
-.cart-promo-msg--error { color: #c0392b; }
-.cart-promo-msg--ok    { color: #27ae60; }
+.cart-promo-msg--error {
+    color: #c0392b;
+}
+
+.cart-promo-msg--ok {
+    color: #27ae60;
+}
 
 .cart-subtotal-row {
     font-weight: 400;

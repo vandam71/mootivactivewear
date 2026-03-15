@@ -33,7 +33,8 @@
                     <span id="checkoutDiscountLabel">Desconto</span>
                     <span class="cart-discount-right">
                         <span id="checkoutDiscountAmt">−€0.00</span>
-                        <button id="checkoutPromoRemove" class="cart-promo-remove" aria-label="Remover desconto">✕</button>
+                        <button id="checkoutPromoRemove" class="cart-promo-remove"
+                            aria-label="Remover desconto">✕</button>
                     </span>
                 </div>
                 <div class="checkout-total-row">
@@ -106,7 +107,7 @@
         function renderOrderSummary() {
             var cart = JSON.parse(localStorage.getItem('cart') || '[]');
             var discount = null;
-            try { discount = JSON.parse(localStorage.getItem('discount')); } catch (e) {}
+            try { discount = JSON.parse(localStorage.getItem('discount')); } catch (e) { }
             var container = document.getElementById('orderItems');
             container.innerHTML = '';
             if (!cart.length) {
