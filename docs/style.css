@@ -302,6 +302,11 @@ h1 {
     margin-bottom: 20px;
 }
 
+.about-story-group p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .about-images {
     display: grid;
     grid-template-columns: 1fr 1fr;
