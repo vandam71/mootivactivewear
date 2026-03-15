@@ -695,6 +695,108 @@ h1 {
     margin-bottom: 4px;
 }
 
+/* Discount code / promo */
+.cart-promo-section {
+    width: 100%;
+}
+
+.cart-promo-input-wrap {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.cart-promo-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.88em;
+    outline: none;
+    transition: border-color 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.cart-promo-input:focus {
+    border-color: #222;
+}
+
+.cart-promo-btn {
+    padding: 8px 14px;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.cart-promo-msg {
+    font-size: 0.8em;
+    margin-top: 6px;
+    min-height: 1em;
+}
+
+.cart-promo-msg--error { color: #c0392b; }
+.cart-promo-msg--ok    { color: #27ae60; }
+
+.cart-subtotal-row {
+    font-weight: 400;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.cart-discount-row {
+    font-weight: 400;
+    font-size: 0.95em;
+    color: #27ae60;
+    align-items: center;
+}
+
+.cart-discount-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-promo-remove {
+    background: none;
+    border: 1px solid #bbb;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.72em;
+    cursor: pointer;
+    color: #888;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background 0.15s, color 0.15s;
+}
+
+.cart-promo-remove:hover {
+    background: #eee;
+    color: #222;
+}
+
+.checkout-subtotal-light {
+    font-weight: 400;
+    font-size: 0.9em;
+    color: #666;
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.checkout-discount-row {
+    font-weight: 400;
+    font-size: 0.95em;
+    color: #27ae60;
+    border-top: none;
+    margin-top: 4px;
+    padding-top: 0;
+    align-items: center;
+}
+
 .btn-outline {
     background: transparent;
     color: #222;

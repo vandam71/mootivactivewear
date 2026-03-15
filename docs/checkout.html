@@ -25,8 +25,19 @@
             <div class="checkout-summary">
                 <h2 class="checkout-section-title" data-i18n="checkout.summary_title">Resumo da Encomenda</h2>
                 <div id="orderItems"></div>
-                <div class="checkout-total-row">
+                <div class="checkout-total-row checkout-subtotal-light" id="checkoutSubtotalRow" style="display:none;">
                     <span data-i18n="checkout.subtotal">Subtotal</span>
+                    <span id="checkoutSubtotal">€0.00</span>
+                </div>
+                <div class="checkout-total-row checkout-discount-row" id="checkoutDiscountRow" style="display:none;">
+                    <span id="checkoutDiscountLabel">Desconto</span>
+                    <span class="cart-discount-right">
+                        <span id="checkoutDiscountAmt">−€0.00</span>
+                        <button id="checkoutPromoRemove" class="cart-promo-remove" aria-label="Remover desconto">✕</button>
+                    </span>
+                </div>
+                <div class="checkout-total-row">
+                    <span data-i18n="checkout.total">Total</span>
                     <span id="orderTotal">€0.00</span>
                 </div>
                 <div class="checkout-total-row"
@@ -88,19 +99,23 @@
     <script src="includes/translations.js"></script>
     <script src="includes/include.js"></script>
     <script>
-        // Render order summary from localStorage
-        (function () {
+        function renderOrderSummary() {
             var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            var discount = null;
+            try { discount = JSON.parse(localStorage.getItem('discount')); } catch (e) {}
             var container = document.getElementById('orderItems');
+            container.innerHTML = '';
             if (!cart.length) {
                 container.innerHTML = '<p style="color:#888">' + t('checkout.empty') + '</p>';
                 document.getElementById('orderTotal').textContent = '€0.00';
+                document.getElementById('checkoutSubtotalRow').style.display = 'none';
+                document.getElementById('checkoutDiscountRow').style.display = 'none';
                 return;
             }
-            var total = 0;
+            var subtotal = 0;
             cart.forEach(function (item) {
                 var line = item.price * item.qty;
-                total += line;
+                subtotal += line;
                 var row = document.createElement('div');
                 row.className = 'order-item-row';
                 row.innerHTML =
@@ -110,8 +125,29 @@
                     '<span>€' + line.toFixed(2) + '</span>';
                 container.appendChild(row);
             });
-            document.getElementById('orderTotal').textContent = '€' + total.toFixed(2);
-        })();
+            var subtotalRow = document.getElementById('checkoutSubtotalRow');
+            var discountRow = document.getElementById('checkoutDiscountRow');
+            if (discount) {
+                var discAmt = Math.round(subtotal * (discount.pct / 100) * 100) / 100;
+                document.getElementById('checkoutSubtotal').textContent = '€' + subtotal.toFixed(2);
+                document.getElementById('checkoutDiscountLabel').textContent =
+                    t('checkout.discount') + ' (' + discount.code + ' −' + discount.pct + '%)';
+                document.getElementById('checkoutDiscountAmt').textContent = '−€' + discAmt.toFixed(2);
+                subtotalRow.style.display = 'flex';
+                discountRow.style.display = 'flex';
+                document.getElementById('orderTotal').textContent = '€' + (subtotal - discAmt).toFixed(2);
+            } else {
+                subtotalRow.style.display = 'none';
+                discountRow.style.display = 'none';
+                document.getElementById('orderTotal').textContent = '€' + subtotal.toFixed(2);
+            }
+            document.getElementById('checkoutPromoRemove').onclick = function () {
+                localStorage.removeItem('discount');
+                renderOrderSummary();
+            };
+        }
+
+        renderOrderSummary();
 
         document.getElementById('checkoutForm').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -125,6 +161,7 @@
             }
             document.getElementById('formError').style.display = 'none';
             localStorage.removeItem('cart');
+            localStorage.removeItem('discount');
             // redirect to confirmation
             document.querySelector('.container').innerHTML =
                 '<div style="text-align:center; padding:60px 20px;">' +

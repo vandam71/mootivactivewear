@@ -24,7 +24,28 @@
             <a href="shop.html" class="btn" style="margin-top:16px;" data-i18n="cart.explore_btn">Explorar coleção →</a>
         </div>
         <div id="cartSummary" class="cart-summary" style="display:none;">
+            <div class="cart-promo-section">
+                <div class="cart-promo-input-wrap" id="promoInputWrap">
+                    <input type="text" id="promoInput" class="cart-promo-input"
+                        data-i18n-placeholder="cart.promo_placeholder" placeholder="Código de desconto"
+                        autocomplete="off" maxlength="30">
+                    <button id="promoApply" class="btn btn-outline cart-promo-btn"
+                        data-i18n="cart.promo_btn">Aplicar</button>
+                </div>
+                <div id="promoMsg" class="cart-promo-msg" aria-live="polite"></div>
+            </div>
             <div class="cart-note" data-i18n="cart.shipping_note">Envio: €4.99 &nbsp;·&nbsp; IVA 23% incluído</div>
+            <div class="cart-total-row cart-subtotal-row" id="cartSubtotalRow" style="display:none;">
+                <span data-i18n="cart.subtotal">Subtotal</span>
+                <span id="cartSubtotal">€0.00</span>
+            </div>
+            <div class="cart-total-row cart-discount-row" id="cartDiscountRow" style="display:none;">
+                <span id="cartDiscountLabel">Desconto</span>
+                <span class="cart-discount-right">
+                    <span id="cartDiscount">−€0.00</span>
+                    <button id="promoRemove" class="cart-promo-remove" aria-label="Remover desconto">✕</button>
+                </span>
+            </div>
             <div class="cart-total-row">
                 <span data-i18n="cart.total">Total</span>
                 <span id="cartTotal">€0.00</span>
@@ -42,6 +63,42 @@
     <script src="includes/include.js"></script>
     <script>
         var cachedProducts = null;
+
+        var DISCOUNT_CODES = {
+            'MOOTIV10': { pct: 10 },
+            'GREEN15':  { pct: 15 },
+            'FIRST20':  { pct: 20 }
+        };
+
+        function getSavedDiscount() {
+            try { return JSON.parse(localStorage.getItem('discount')); } catch (e) { return null; }
+        }
+
+        function applyPromo() {
+            var input = document.getElementById('promoInput');
+            var msg = document.getElementById('promoMsg');
+            var code = input.value.trim().toUpperCase();
+            if (!code) return;
+            var disc = DISCOUNT_CODES[code];
+            if (!disc) {
+                msg.textContent = t('cart.promo_invalid');
+                msg.className = 'cart-promo-msg cart-promo-msg--error';
+                return;
+            }
+            localStorage.setItem('discount', JSON.stringify({ code: code, pct: disc.pct }));
+            msg.textContent = t('cart.promo_applied').replace('{pct}', disc.pct);
+            msg.className = 'cart-promo-msg cart-promo-msg--ok';
+            renderCart(null, cachedProducts);
+        }
+
+        function removePromo() {
+            localStorage.removeItem('discount');
+            var input = document.getElementById('promoInput');
+            var msg = document.getElementById('promoMsg');
+            if (input) input.value = '';
+            if (msg) { msg.textContent = ''; msg.className = 'cart-promo-msg'; }
+            renderCart(null, cachedProducts);
+        }
 
         function saveAndRender(cart) {
             localStorage.setItem('cart', JSON.stringify(cart));
@@ -106,7 +163,27 @@
                 container.appendChild(row);
             });
 
-            document.getElementById('cartTotal').textContent = '€' + grandTotal.toFixed(2);
+            // Discount
+            var discount = getSavedDiscount();
+            var discountAmt = discount ? Math.round(grandTotal * (discount.pct / 100) * 100) / 100 : 0;
+            var finalTotal = grandTotal - discountAmt;
+            var discountRow = document.getElementById('cartDiscountRow');
+            var subtotalRow = document.getElementById('cartSubtotalRow');
+            var inputWrap = document.getElementById('promoInputWrap');
+            if (discount) {
+                document.getElementById('cartDiscountLabel').textContent =
+                    t('cart.discount') + ' (' + discount.code + ' −' + discount.pct + '%)';
+                document.getElementById('cartDiscount').textContent = '−€' + discountAmt.toFixed(2);
+                document.getElementById('cartSubtotal').textContent = '€' + grandTotal.toFixed(2);
+                discountRow.style.display = 'flex';
+                subtotalRow.style.display = 'flex';
+                inputWrap.style.display = 'none';
+            } else {
+                discountRow.style.display = 'none';
+                subtotalRow.style.display = 'none';
+                inputWrap.style.display = 'flex';
+            }
+            document.getElementById('cartTotal').textContent = '€' + finalTotal.toFixed(2);
 
             container.querySelectorAll('.qty-btn').forEach(function (btn) {
                 btn.addEventListener('click', function () {
@@ -124,6 +201,11 @@
                     saveAndRender(c);
                 });
             });
+
+            document.getElementById('promoApply').onclick = applyPromo;
+            document.getElementById('promoInput').onkeydown = function (e) { if (e.key === 'Enter') applyPromo(); };
+            var removeBtn = document.getElementById('promoRemove');
+            if (removeBtn) removeBtn.onclick = removePromo;
         }
 
         fetch('products/products.json')
