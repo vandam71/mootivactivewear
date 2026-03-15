@@ -23,6 +23,9 @@ window.TRANSLATIONS = {
         "product.section_trace": "Rastreabilidade",
         "product.trace_origin": "Origem",
         "product.trace_material": "Fonte dos materiais",
+        "product.trace_spinning": "Fiação",
+        "product.trace_knitting": "Malha / Tecelagem",
+        "product.trace_finishing": "Acabamento",
         "product.trace_manufacturer": "Fabricante",
         "product.trace_certifications": "Certificações",
         "product.trace_carbon": "Pegada carbónica"
@@ -122,6 +125,9 @@ window.TRANSLATIONS = {
         "product.section_trace": "Traceability",
         "product.trace_origin": "Origin",
         "product.trace_material": "Material source",
+        "product.trace_spinning": "Spinning",
+        "product.trace_knitting": "Knitting / Weaving",
+        "product.trace_finishing": "Finishing",
         "product.trace_manufacturer": "Manufacturer",
         "product.trace_certifications": "Certifications",
         "product.trace_carbon": "Carbon footprint"
