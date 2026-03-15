@@ -280,10 +280,29 @@
                     }
                 })
                 .then(() => {
-                    const layout = document.querySelector('.product-layout');
-                    if (layout) {
-                        const top = layout.getBoundingClientRect().top + window.scrollY - 16;
-                        window.scrollTo({ top, behavior: 'smooth' });
+                    function scrollPastHeaderTop() {
+                        const headerTop = document.querySelector('.header-top');
+                        if (!headerTop) return;
+                        const run = () => window.scrollTo({ top: headerTop.offsetHeight, behavior: 'smooth' });
+                        const img = headerTop.querySelector('img');
+                        if (img && !img.complete) {
+                            img.addEventListener('load', run, { once: true });
+                            img.addEventListener('error', run, { once: true });
+                        } else {
+                            run();
+                        }
+                    }
+                    const siteHeader = document.getElementById('site-header');
+                    if (siteHeader && siteHeader.querySelector('.header-top')) {
+                        scrollPastHeaderTop();
+                    } else {
+                        const obs = new MutationObserver(() => {
+                            if (document.querySelector('.header-top')) {
+                                obs.disconnect();
+                                scrollPastHeaderTop();
+                            }
+                        });
+                        obs.observe(siteHeader || document.body, { childList: true, subtree: true });
                     }
                 })
                 .catch(err => {
