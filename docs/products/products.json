@@ -896,6 +896,7 @@
       "description_en": "Protection with character — the Green 1.0 Cap is built in technical fabric with a natural antibacterial finish. Structured brim, adjustable back closure, and collection embroidery. For training or the street.",
       "page": "product.html?id=green-cap",
       "gender": "unisex",
+      "category": "accessories",
       "new": true,
       "images": {
         "#292628": [
@@ -979,6 +980,7 @@
       "description_en": "The foundation of every workout — the Green 1.0 Socks are made from recycled cotton with a natural antibacterial finish. Cushioned sole, mid-calf cut, and comfortable elastic to keep everything in place.",
       "page": "product.html?id=green-socks",
       "gender": "unisex",
+      "category": "accessories",
       "new": true,
       "images": {
         "#ffffff": [
@@ -1071,6 +1073,7 @@
       "description_en": "More support, better performance — the Green 1.1 Socks are the evolution of the Green line, with arch compression structure, natural antibacterial finish, and high-visibility technical design. For athletes who demand more.",
       "page": "product.html?id=green-socks-11",
       "gender": "unisex",
+      "category": "accessories",
       "new": true,
       "images": {
         "#a8b0a0": [
