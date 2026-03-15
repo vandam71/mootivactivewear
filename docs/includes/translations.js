@@ -96,6 +96,8 @@ window.TRANSLATIONS = {
         "checkout.city_label": "City",
         "checkout.city_ph": "London",
         "checkout.form_error": "Please fill in all required fields.",
+        "checkout.email_error": "Invalid email format.",
+        "checkout.phone_error": "Invalid phone number (e.g. +44 7700 900000).",
         "checkout.confirm_btn": "Confirm Order →",
         "checkout.empty": "Your cart is empty. <a href=\"shop.html\">View collection</a>",
         // About page

@@ -61,11 +61,15 @@
                         <label for="co-email" data-i18n="checkout.email_label">Email</label>
                         <input type="email" id="co-email" name="email" required
                             data-i18n-placeholder="checkout.email_ph" placeholder="maria@email.com">
+                        <span class="field-error" id="err-email" style="display:none;"
+                            data-i18n="checkout.email_error">Formato de email inválido.</span>
                     </div>
                     <div class="form-group">
                         <label for="co-phone" data-i18n="checkout.phone_label">Telefone</label>
                         <input type="tel" id="co-phone" name="phone" data-i18n-placeholder="checkout.phone_ph"
                             placeholder="+351 900 000 000">
+                        <span class="field-error" id="err-phone" style="display:none;"
+                            data-i18n="checkout.phone_error">Formato de telefone inválido (ex: +351 912 345 678).</span>
                     </div>
                     <div class="form-group">
                         <label for="co-address" data-i18n="checkout.address_label">Morada</label>
@@ -155,6 +159,21 @@
             var required = form.querySelectorAll('[required]');
             var valid = true;
             required.forEach(function (f) { if (!f.value.trim()) valid = false; });
+
+            // Email format
+            var emailInput = document.getElementById('co-email');
+            var emailVal = emailInput.value.trim();
+            var emailOk = !emailVal || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailVal);
+            document.getElementById('err-email').style.display = emailOk ? 'none' : 'block';
+            if (!emailOk) valid = false;
+
+            // Phone format (optional, but must be valid if filled)
+            var phoneInput = document.getElementById('co-phone');
+            var phoneVal = phoneInput.value.trim();
+            var phoneOk = !phoneVal || (/^[+\d][\d\s\-.()]+$/.test(phoneVal) && phoneVal.replace(/\D/g, '').length >= 7);
+            document.getElementById('err-phone').style.display = phoneOk ? 'none' : 'block';
+            if (!phoneOk) valid = false;
+
             if (!valid) {
                 document.getElementById('formError').style.display = 'block';
                 return;

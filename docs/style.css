@@ -915,6 +915,16 @@ h1 {
     margin-bottom: 8px;
 }
 
+.field-error {
+    color: #c0392b;
+    font-size: 0.78em;
+    margin-top: 4px;
+}
+
+.form-group input.input-error {
+    border-color: #c0392b;
+}
+
 @media (max-width: 640px) {
     .checkout-layout {
         flex-direction: column;
