@@ -283,7 +283,7 @@ h1 {
 
 /* About page */
 .about-page {
-    max-width: 680px;
+    max-width: 1100px;
     text-align: center;
 }
 
@@ -311,7 +311,7 @@ h1 {
 
 .about-images img {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/10;
     object-fit: cover;
     border-radius: 8px;
     display: block;
