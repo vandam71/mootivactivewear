@@ -12,7 +12,16 @@ window.TRANSLATIONS = {
         "shop.load_error": "Erro ao carregar produtos.",
         "shop.empty_title": "Nada por aqui ainda",
         "shop.empty_sub": "Esta categoria ainda não tem produtos disponíveis.<br>Explora a nossa coleção completa.",
-        "shop.empty_cta": "Ver toda a coleção"
+        "shop.empty_cta": "Ver toda a coleção",
+        // Product detail sections
+        "product.section_chars": "Características",
+        "product.section_sizes": "Guia de Tamanhos",
+        "product.section_trace": "Rastreabilidade",
+        "product.trace_origin": "Origem",
+        "product.trace_material": "Fonte dos materiais",
+        "product.trace_manufacturer": "Fabricante",
+        "product.trace_certifications": "Certificações",
+        "product.trace_carbon": "Pegada carbónica"
     },
     en: {
         // Nav
@@ -92,7 +101,16 @@ window.TRANSLATIONS = {
         "shop.load_error": "Error loading products.",
         "shop.empty_title": "Nothing here yet",
         "shop.empty_sub": "This category has no products yet.<br>Explore our full collection.",
-        "shop.empty_cta": "View all"
+        "shop.empty_cta": "View all",
+        // Product detail sections
+        "product.section_chars": "Characteristics",
+        "product.section_sizes": "Size Guide",
+        "product.section_trace": "Traceability",
+        "product.trace_origin": "Origin",
+        "product.trace_material": "Material source",
+        "product.trace_manufacturer": "Manufacturer",
+        "product.trace_certifications": "Certifications",
+        "product.trace_carbon": "Carbon footprint"
     }
 };
 

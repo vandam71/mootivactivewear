@@ -5,8 +5,8 @@
       "id": "green-top",
       "name": "Green 1.0 Top",
       "price": 29.9,
-      "description": "Leve e respirável — o Top Green 1.0 combina conforto com materiais sustentáveis.",
-      "description_en": "Light and breathable — the Green 1.0 Top combines comfort with sustainable materials.",
+      "description": "Feito para te mover — o Top Green 1.0 é leve, respirável e com acabamento antibacteriano natural derivado dos resíduos da produção de azeite. Perfeito para treinos de alta intensidade ou uso diário.",
+      "description_en": "Built to move with you — the Green 1.0 Top is lightweight, breathable, and finished with a natural antibacterial treatment derived from olive oil production waste. Perfect for high-intensity training or everyday wear.",
       "page": "product.html?id=green-top",
       "gender": "women",
       "new": true,
@@ -16,21 +16,44 @@
         "#ffffff": ["products/images/green-top.jpg"],
         "#008000": ["products/images/green-top.jpg"]
       },
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ]
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "characteristics": [
+        { "label": "Material", "label_en": "Material", "value": "97% Poliéster reciclado, 3% Elastano", "value_en": "97% Recycled polyester, 3% Elastane" },
+        { "label": "Acabamento", "label_en": "Finish", "value": "Antibacteriano natural derivado de subprodutos do azeite", "value_en": "Natural antibacterial derived from olive oil by-products" },
+        { "label": "Peso do tecido", "label_en": "Fabric weight", "value": "165 g/m²", "value_en": "165 g/m²" },
+        { "label": "Lavagem", "label_en": "Care", "value": "Máquina 30°C, não colocar na máquina de secar, engomar a baixa temperatura", "value_en": "Machine wash 30°C, do not tumble dry, iron on low heat" },
+        { "label": "Tecnologia", "label_en": "Technology", "value": "Anti-odor · Respirável · Toque suave", "value_en": "Anti-odor · Breathable · Soft touch" }
+      ],
+      "size_guide": {
+        "headers": ["Tamanho", "Busto (cm)", "Cintura (cm)", "Anca (cm)"],
+        "headers_en": ["Size", "Bust (cm)", "Waist (cm)", "Hip (cm)"],
+        "rows": [
+          ["XS", "80–84", "60–64", "86–90"],
+          ["S",  "84–88", "64–68", "90–94"],
+          ["M",  "88–92", "68–72", "94–98"],
+          ["L",  "92–96", "72–76", "98–102"],
+          ["XL", "96–100","76–80", "102–106"]
+        ]
+      },
+      "traceability": {
+        "origin": "Portugal",
+        "origin_en": "Portugal",
+        "material_source": "Resíduos da produção de azeite — Alentejo, Portugal",
+        "material_source_en": "Olive oil production waste — Alentejo, Portugal",
+        "manufacturer": "Confecções Verde, Braga, Portugal",
+        "manufacturer_en": "Confecções Verde, Braga, Portugal",
+        "certifications": ["OEKO-TEX Standard 100", "GRS Certified"],
+        "carbon_footprint": "1.9 kg CO₂e / peça",
+        "carbon_footprint_en": "1.9 kg CO₂e / piece"
+      }
     },
     {
       "uid": 2,
       "id": "green-tshirt",
       "name": "Green 1.0 T-shirt",
       "price": 34.9,
-      "description": "Conforto inteligente com acabamento antibacteriano — a T-shirt Green 1.0 foi pensada para performance e sustentabilidade.",
-      "description_en": "Smart comfort with antibacterial finish — the Green 1.0 T-shirt was designed for performance and sustainability.",
+      "description": "Performance e consciência — a T-shirt Green 1.0 combina tecido de secagem rápida com um acabamento antibacteriano natural derivado dos resíduos da produção de azeite. Desenvolvida para o homem ativo que não abdica de conforto nem de sustentabilidade.",
+      "description_en": "Performance meets purpose — the Green 1.0 T-shirt pairs quick-dry fabric with a natural antibacterial finish derived from olive oil production waste. Designed for the active man who refuses to compromise on comfort or sustainability.",
       "page": "product.html?id=green-tshirt",
       "gender": "men",
       "new": false,
@@ -39,21 +62,44 @@
         "#000080": ["products/images/green-tshirt.png"],
         "#ffffff": ["products/images/green-tshirt.png"]
       },
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ]
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "characteristics": [
+        { "label": "Material", "label_en": "Material", "value": "100% Poliéster reciclado", "value_en": "100% Recycled polyester" },
+        { "label": "Acabamento", "label_en": "Finish", "value": "Antibacteriano natural · Anti-transpirante — derivado de subprodutos do azeite", "value_en": "Natural antibacterial · Moisture-wicking — derived from olive oil by-products" },
+        { "label": "Peso do tecido", "label_en": "Fabric weight", "value": "175 g/m²", "value_en": "175 g/m²" },
+        { "label": "Lavagem", "label_en": "Care", "value": "Máquina 30°C, não colocar na máquina de secar, engomar a baixa temperatura", "value_en": "Machine wash 30°C, do not tumble dry, iron on low heat" },
+        { "label": "Tecnologia", "label_en": "Technology", "value": "Anti-odor · Respirável · Secagem rápida", "value_en": "Anti-odor · Breathable · Quick-dry" }
+      ],
+      "size_guide": {
+        "headers": ["Tamanho", "Peito (cm)", "Ombros (cm)", "Comprimento (cm)"],
+        "headers_en": ["Size", "Chest (cm)", "Shoulders (cm)", "Length (cm)"],
+        "rows": [
+          ["S",   "88–92",  "42–44", "68"],
+          ["M",   "92–96",  "44–46", "71"],
+          ["L",   "96–100", "46–48", "74"],
+          ["XL",  "100–104","48–50", "77"],
+          ["XXL", "104–108","50–52", "80"]
+        ]
+      },
+      "traceability": {
+        "origin": "Portugal",
+        "origin_en": "Portugal",
+        "material_source": "Resíduos da produção de azeite — Alentejo, Portugal",
+        "material_source_en": "Olive oil production waste — Alentejo, Portugal",
+        "manufacturer": "Confecções Verde, Braga, Portugal",
+        "manufacturer_en": "Confecções Verde, Braga, Portugal",
+        "certifications": ["OEKO-TEX Standard 100", "GRS Certified"],
+        "carbon_footprint": "2.1 kg CO₂e / peça",
+        "carbon_footprint_en": "2.1 kg CO₂e / piece"
+      }
     },
     {
       "uid": 3,
       "id": "green-leggings",
       "name": "Green 1.0 Legging",
       "price": 49.9,
-      "description": "Compressão leve e suporte para treino — confeccionada com materiais reciclados.",
-      "description_en": "Light compression and training support — crafted with recycled materials.",
+      "description": "Compressão leve para quem vai mais longe — o Legging Green 1.0 oferece suporte muscular, toque suave e acabamento antibacteriano natural em tecido 100% reciclado. Para correr, treinar ou simplesmente não parar.",
+      "description_en": "Light compression for those who go further — the Green 1.0 Legging delivers muscle support, a soft feel, and natural antibacterial finish in fully recycled fabric. For running, training, or simply never stopping.",
       "page": "product.html?id=green-leggings",
       "gender": "women",
       "new": true,
@@ -62,21 +108,44 @@
         "#6b4423": ["products/images/green-leggings.png"],
         "#008000": ["products/images/green-leggings.png"]
       },
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ]
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "characteristics": [
+        { "label": "Material", "label_en": "Material", "value": "97% Poliéster reciclado, 3% Elastano", "value_en": "97% Recycled polyester, 3% Elastane" },
+        { "label": "Acabamento", "label_en": "Finish", "value": "Antibacteriano natural · Compressão leve — derivado de subprodutos do azeite", "value_en": "Natural antibacterial · Light compression — derived from olive oil by-products" },
+        { "label": "Peso do tecido", "label_en": "Fabric weight", "value": "220 g/m²", "value_en": "220 g/m²" },
+        { "label": "Lavagem", "label_en": "Care", "value": "Máquina 30°C, não colocar na máquina de secar, engomar a baixa temperatura", "value_en": "Machine wash 30°C, do not tumble dry, iron on low heat" },
+        { "label": "Tecnologia", "label_en": "Technology", "value": "Compressão · Anti-odor · Opaco · 4-way stretch", "value_en": "Compression · Anti-odor · Opaque · 4-way stretch" }
+      ],
+      "size_guide": {
+        "headers": ["Tamanho", "Cintura (cm)", "Anca (cm)", "Entrepernas (cm)"],
+        "headers_en": ["Size", "Waist (cm)", "Hip (cm)", "Inseam (cm)"],
+        "rows": [
+          ["XS", "60–64", "86–90",  "72"],
+          ["S",  "64–68", "90–94",  "73"],
+          ["M",  "68–72", "94–98",  "74"],
+          ["L",  "72–76", "98–102", "75"],
+          ["XL", "76–80", "102–106","76"]
+        ]
+      },
+      "traceability": {
+        "origin": "Portugal",
+        "origin_en": "Portugal",
+        "material_source": "Resíduos da produção de azeite — Alentejo, Portugal",
+        "material_source_en": "Olive oil production waste — Alentejo, Portugal",
+        "manufacturer": "Confecções Verde, Braga, Portugal",
+        "manufacturer_en": "Confecções Verde, Braga, Portugal",
+        "certifications": ["OEKO-TEX Standard 100", "GRS Certified", "bluesign®"],
+        "carbon_footprint": "2.4 kg CO₂e / peça",
+        "carbon_footprint_en": "2.4 kg CO₂e / piece"
+      }
     },
     {
       "uid": 5,
       "id": "green-shorts",
       "name": "Green 1.0 Shorts",
       "price": 29.9,
-      "description": "Shorts leves e de secagem rápida, com tecido reciclado de alta respirabilidade.",
-      "description_en": "Lightweight, quick-dry shorts made from highly breathable recycled fabric.",
+      "description": "Leve como deve ser — os Shorts Green 1.0 são feitos de poliéster reciclado de alta respirabilidade com acabamento antibacteriano natural. Secos em minutos, confortáveis o dia todo.",
+      "description_en": "Light as it should be — the Green 1.0 Shorts are made from highly breathable recycled polyester with a natural antibacterial finish. Dry in minutes, comfortable all day.",
       "page": "product.html?id=green-shorts",
       "gender": "men",
       "new": false,
@@ -86,21 +155,44 @@
         "#008000": ["products/images/green-shorts.png"],
         "#ffffff": ["products/images/green-shorts.png"]
       },
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ]
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "characteristics": [
+        { "label": "Material", "label_en": "Material", "value": "100% Poliéster reciclado", "value_en": "100% Recycled polyester" },
+        { "label": "Acabamento", "label_en": "Finish", "value": "Antibacteriano natural · Repelente de humidade — derivado de subprodutos do azeite", "value_en": "Natural antibacterial · Moisture-repellent — derived from olive oil by-products" },
+        { "label": "Peso do tecido", "label_en": "Fabric weight", "value": "145 g/m²", "value_en": "145 g/m²" },
+        { "label": "Lavagem", "label_en": "Care", "value": "Máquina 30°C, não colocar na máquina de secar, engomar a baixa temperatura", "value_en": "Machine wash 30°C, do not tumble dry, iron on low heat" },
+        { "label": "Tecnologia", "label_en": "Technology", "value": "Secagem rápida · Anti-odor · Respirável", "value_en": "Quick-dry · Anti-odor · Breathable" }
+      ],
+      "size_guide": {
+        "headers": ["Tamanho", "Cintura (cm)", "Anca (cm)", "Comprimento (cm)"],
+        "headers_en": ["Size", "Waist (cm)", "Hip (cm)", "Length (cm)"],
+        "rows": [
+          ["S",   "76–80",  "92–96",  "48"],
+          ["M",   "80–84",  "96–100", "50"],
+          ["L",   "84–88",  "100–104","52"],
+          ["XL",  "88–92",  "104–108","54"],
+          ["XXL", "92–96",  "108–112","56"]
+        ]
+      },
+      "traceability": {
+        "origin": "Portugal",
+        "origin_en": "Portugal",
+        "material_source": "Resíduos da produção de azeite — Alentejo, Portugal",
+        "material_source_en": "Olive oil production waste — Alentejo, Portugal",
+        "manufacturer": "Confecções Verde, Braga, Portugal",
+        "manufacturer_en": "Confecções Verde, Braga, Portugal",
+        "certifications": ["OEKO-TEX Standard 100", "GRS Certified"],
+        "carbon_footprint": "1.7 kg CO₂e / peça",
+        "carbon_footprint_en": "1.7 kg CO₂e / piece"
+      }
     },
     {
       "uid": 6,
       "id": "green-hoodie",
       "name": "Green 1.0 Hoodie",
       "price": 59.9,
-      "description": "Camisola com capuz em tecido macio — ideal para aquecimentos e pós-treino.",
-      "description_en": "Soft-fabric hoodie — ideal for warm-ups and post-workout.",
+      "description": "O companheiro que fica — a Hoodie Green 1.0 é feita de poliéster reciclado com toque extra macio e acabamento antibacteriano natural. Para aquecimentos, recuperações e tudo o que fica entre um treino e outro.",
+      "description_en": "The companion that stays — the Green 1.0 Hoodie is made from recycled polyester with an extra soft feel and natural antibacterial finish. For warm-ups, recovery, and everything in between.",
       "page": "product.html?id=green-hoodie",
       "gender": "men",
       "new": false,
@@ -108,13 +200,36 @@
         "#000000": ["products/images/green-hoodie.png", "products/images/green-hoodie-women.jpg"],
         "#ffffff": ["products/images/green-hoodie.png"]
       },
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ]
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "characteristics": [
+        { "label": "Material", "label_en": "Material", "value": "100% Poliéster reciclado", "value_en": "100% Recycled polyester" },
+        { "label": "Acabamento", "label_en": "Finish", "value": "Antibacteriano natural · Toque extra suave — derivado de subprodutos do azeite", "value_en": "Natural antibacterial · Extra soft touch — derived from olive oil by-products" },
+        { "label": "Peso do tecido", "label_en": "Fabric weight", "value": "300 g/m²", "value_en": "300 g/m²" },
+        { "label": "Lavagem", "label_en": "Care", "value": "Máquina 30°C, não colocar na máquina de secar, engomar a baixa temperatura", "value_en": "Machine wash 30°C, do not tumble dry, iron on low heat" },
+        { "label": "Tecnologia", "label_en": "Technology", "value": "Anti-odor · Isolamento térmico leve · Bolso canguru", "value_en": "Anti-odor · Light thermal insulation · Kangaroo pocket" }
+      ],
+      "size_guide": {
+        "headers": ["Tamanho", "Peito (cm)", "Ombros (cm)", "Comprimento (cm)"],
+        "headers_en": ["Size", "Chest (cm)", "Shoulders (cm)", "Length (cm)"],
+        "rows": [
+          ["S",   "88–92",  "43–45", "65"],
+          ["M",   "92–96",  "45–47", "68"],
+          ["L",   "96–100", "47–49", "71"],
+          ["XL",  "100–104","49–51", "74"],
+          ["XXL", "104–108","51–53", "77"]
+        ]
+      },
+      "traceability": {
+        "origin": "Portugal",
+        "origin_en": "Portugal",
+        "material_source": "Resíduos da produção de azeite — Alentejo; Algodão orgânico — certificado GOTS",
+        "material_source_en": "Olive oil production waste — Alentejo; Organic cotton — GOTS certified",
+        "manufacturer": "Confecções Verde, Braga, Portugal",
+        "manufacturer_en": "Confecções Verde, Braga, Portugal",
+        "certifications": ["OEKO-TEX Standard 100", "GRS Certified", "GOTS"],
+        "carbon_footprint": "3.2 kg CO₂e / peça",
+        "carbon_footprint_en": "3.2 kg CO₂e / piece"
+      }
     }
   ]
 }
