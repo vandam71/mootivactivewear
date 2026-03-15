@@ -279,6 +279,13 @@
                         accordion.appendChild(details);
                     }
                 })
+                .then(() => {
+                    const layout = document.querySelector('.product-layout');
+                    if (layout) {
+                        const top = layout.getBoundingClientRect().top + window.scrollY - 16;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                })
                 .catch(err => {
                     console.error('Error loading product data:', err);
                     document.querySelector('.container').innerHTML = '<p>Erro ao carregar produto.</p>';
