@@ -80,9 +80,10 @@
                 if (products) {
                     var prod = products.find(function (p) { return p.id === item.id; });
                     if (prod && prod.images) {
-                        imgSrc = (item.color && prod.images[item.color])
+                        var imgs = (item.color && prod.images[item.color])
                             ? prod.images[item.color]
                             : prod.images[Object.keys(prod.images)[0]];
+                        imgSrc = Array.isArray(imgs) ? imgs[0] : imgs;
                     }
                 }
 
